@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -11,9 +12,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Block Move
   - 
   - 
   - 
@@ -40,4 +41,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 949271035
+    locked: 0
+  - name: Ground Item
+    uniqueID: 613808303
+    locked: 0
+  - name: Object
+    uniqueID: 882728367
+    locked: 0
+  - name: Walls
+    uniqueID: 1332664233
+    locked: 0
+  - name: Character
+    uniqueID: 2428945087
+    locked: 0
+  - name: Object Top
+    uniqueID: 2871674265
     locked: 0
