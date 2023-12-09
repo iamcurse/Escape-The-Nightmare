@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
 
-public class CollidablleObject : MonoBehaviour
+public class InteractableObject : MonoBehaviour
 {
     public bool isInRange;
     public KeyCode interactKey;
