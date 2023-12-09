@@ -6,12 +6,16 @@ public class PlayerManager : MonoBehaviour
 {
     public int keyCount;
 
-    public void PickUpKey() {
-        keyCount++;
-        Debug.Log("Pucked up Key");
+    public void PickUpKey(int key) {
+        keyCount += key;
+        Debug.Log("Pucked up " + key + " Key");
     }
-    public void UseKey() {
-        keyCount--;
-        Debug.Log("Key is Used");
+    public void UseKey(int key) {
+        keyCount -= key;
+        if (key == 1) {
+            Debug.Log(key + " Key is Used");
+        } else {
+            Debug.Log(key + " Keys is Used");
+        }
     }
 }

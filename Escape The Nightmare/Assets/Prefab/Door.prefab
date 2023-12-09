@@ -117,8 +117,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6548516553827010501}
   - component: {fileID: 5189469392023932692}
-  - component: {fileID: 1648985289634939796}
   - component: {fileID: 4137780968766782198}
+  - component: {fileID: 1648985289634939796}
   - component: {fileID: 5576441397432845306}
   m_Layer: 8
   m_Name: Door
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_SortingLayerID: 882728367
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d2059eee40269924ebf0463efdf32499, type: 3}
+  m_Sprite: {fileID: 1753957069, guid: ffc19669667c94442a37c8f5ba1c7f0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -195,6 +195,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4137780968766782198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7981034573729099083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c837080247ee248ae28ae53c92d95c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  keyNeed: 1
+  soundEffect: {fileID: 8300000, guid: 55b5a6413205c1b4da55f5940a7ce5e7, type: 3}
 --- !u!61 &1648985289634939796
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -240,19 +255,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &4137780968766782198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7981034573729099083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c837080247ee248ae28ae53c92d95c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
 --- !u!95 &5576441397432845306
 Animator:
   serializedVersion: 5
