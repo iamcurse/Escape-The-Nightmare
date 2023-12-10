@@ -6,42 +6,60 @@ using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
+    public GameObject playerObject;
+    public Dialogue dialogueBoxObject;
     public bool isOpen;
     public int keyNeed = 1;
     public bool isChangeScene;
     public string sceneName;
-    public GameObject player;
-    public GameObject mainObject;
-    public GameObject doorFrameClosed;
-    public GameObject doorFrameOpened;
     public AudioClip soundEffect;
     Animator animator;
     
     public void OpenDoor() {
         if (!isOpen){
-            PlayerManager pm = player.GetComponent<PlayerManager>();
+            PlayerManager pm = playerObject.GetComponent<PlayerManager>();
             if (pm) {
                 if (pm.keyCount >= keyNeed) {
-                    isOpen = true;
-                    pm.UseKey(keyNeed);
-                    animator.SetTrigger("isOpen");
-                    AudioSource.PlayClipAtPoint(soundEffect, transform.position);
-                    DoorOpenChanged();
+                    if (keyNeed == 0) {
+                        isOpen = true;
+                        pm.UseKey(keyNeed);
+                        animator.SetTrigger("isOpen");
+                        AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+                        DoorOpenChanged();
+                    } else {
+                    if (dialogueBoxObject) {
+                        isOpen = true;
+                        pm.UseKey(keyNeed);
+                        animator.SetTrigger("isOpen");
+                        AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+                        if (keyNeed == 1) {
+                            dialogueBoxObject.StartDialogue("1 Keys is Used \nDoor is Unlocked");
+                        } else {
+                            dialogueBoxObject.StartDialogue(keyNeed + " Keys is Used \nDoor is Unlocked");
+                        }
+
+                        DoorOpenChanged();
+                    } else {
+                        Debug.LogWarning("Dialog Object not found");
+                    }
+                    }
                 }
+            } else {
+                Debug.LogWarning("Player Object not found");
             }
         }
     }
 
     private void DoorOpenChanged() {
-        BoxCollider2D boxCollider2D = mainObject.GetComponent<BoxCollider2D>();
+        BoxCollider2D boxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
         if (boxCollider2D) {
             boxCollider2D.isTrigger = true;
         }
-        SpriteRenderer spriteRenderer0 = doorFrameClosed.GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteRenderer0 = transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();
         if (spriteRenderer0) {
             spriteRenderer0.enabled = false;
         }
-        SpriteRenderer spriteRenderer1 = doorFrameOpened.GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteRenderer1 = transform.GetChild(3).gameObject.GetComponent<SpriteRenderer>();
         if (spriteRenderer1) {
             spriteRenderer1.enabled = true;
         }

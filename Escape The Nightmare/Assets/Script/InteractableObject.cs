@@ -7,9 +7,11 @@ using UnityEngine.PlayerLoop;
 
 public class InteractableObject : MonoBehaviour
 {
+    public GameObject parentObject;
     public bool isInRange;
-    public bool isDestroyWhenUsed;
-    public GameObject mainObject;
+    public bool limitTimeOfUse;
+    public int timeOfUse = 1;
+    public bool destroyWhenUsed;
     public KeyCode interactKey;
     public UnityEvent interactAction;
 
@@ -21,8 +23,19 @@ public class InteractableObject : MonoBehaviour
         if (isInRange) {
             if (Input.GetKeyDown(interactKey)) {
                 interactAction.Invoke();
-                if (isDestroyWhenUsed) {
-                    Destroy(mainObject);
+                if (limitTimeOfUse) {
+                    timeOfUse--;
+                }
+                if (timeOfUse == 0) {
+                    if (destroyWhenUsed) {
+                        if (parentObject) {
+                            Destroy(parentObject);
+                        } else {
+                            Destroy(this.gameObject);
+                        }
+                    } else {
+                        Destroy(this);
+                    }
                 }
             }
         }

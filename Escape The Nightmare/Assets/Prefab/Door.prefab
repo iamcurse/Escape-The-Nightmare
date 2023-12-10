@@ -94,7 +94,7 @@ MonoBehaviour:
   interactAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5990096655815798079}
+      - m_Target: {fileID: 8825104561863826809}
         m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
         m_MethodName: DoorEnter
         m_Mode: 1
@@ -254,14 +254,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c837080247ee248ae28ae53c92d95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  dialogueObject: {fileID: 0}
   isOpen: 0
   keyNeed: 1
   isChangeScene: 0
   sceneName: 
-  player: {fileID: 0}
-  mainObject: {fileID: 5990096655815798079}
-  doorFrameClosed: {fileID: 7163992301090130229}
-  doorFrameOpened: {fileID: 7168586777937065554}
   soundEffect: {fileID: 8300000, guid: 55b5a6413205c1b4da55f5940a7ce5e7, type: 3}
 --- !u!95 &6109480781386407719
 Animator:
@@ -542,9 +540,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad147f3f87cf414d9c5bfadc6190583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentObject: {fileID: 5990096655815798079}
   isInRange: 0
-  isDestroyWhenUsed: 0
-  mainObject: {fileID: 0}
+  timeOfUse: 1
+  destroyWhenUsed: 0
   interactKey: 323
   interactAction:
     m_PersistentCalls:
