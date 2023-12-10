@@ -11,7 +11,7 @@ public class DoorController : MonoBehaviour
     public bool isChangeScene;
     public string sceneName;
     public GameObject player;
-    public GameObject gobj;
+    public GameObject mainObject;
     public GameObject doorFrameClosed;
     public GameObject doorFrameOpened;
     public AudioClip soundEffect;
@@ -33,7 +33,7 @@ public class DoorController : MonoBehaviour
     }
 
     private void DoorOpenChanged() {
-        BoxCollider2D boxCollider2D = gobj.GetComponent<BoxCollider2D>();
+        BoxCollider2D boxCollider2D = mainObject.GetComponent<BoxCollider2D>();
         if (boxCollider2D) {
             boxCollider2D.isTrigger = true;
         }
