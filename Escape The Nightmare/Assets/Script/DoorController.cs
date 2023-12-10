@@ -6,46 +6,38 @@ using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
-    public GameObject playerObject;
-    public Dialogue dialogueBoxObject;
+    public string doorName = "";
     public bool isOpen;
     public int keyNeed = 1;
     public bool isChangeScene;
     public string sceneName;
     public AudioClip soundEffect;
     Animator animator;
+
+    InteractableObject iobj;
     
     public void OpenDoor() {
         if (!isOpen){
-            PlayerManager pm = playerObject.GetComponent<PlayerManager>();
+            iobj = transform.GetChild(0).gameObject.GetComponent<InteractableObject>();
+            PlayerManager pm = FindObjectOfType<PlayerManager>().gameObject.GetComponent<PlayerManager>();
             if (pm) {
                 if (pm.keyCount >= keyNeed) {
-                    if (keyNeed == 0) {
+                    if (doorName == "") {
                         isOpen = true;
-                        pm.UseKey(keyNeed);
+                            pm.UseKey(keyNeed);
+                            animator.SetTrigger("isOpen");
+                            AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+                            DoorOpenChanged();
+                    } else {
+                        isOpen = true;
+                        pm.UseKey(keyNeed, doorName);
                         animator.SetTrigger("isOpen");
                         AudioSource.PlayClipAtPoint(soundEffect, transform.position);
                         DoorOpenChanged();
-                    } else {
-                    if (dialogueBoxObject) {
-                        isOpen = true;
-                        pm.UseKey(keyNeed);
-                        animator.SetTrigger("isOpen");
-                        AudioSource.PlayClipAtPoint(soundEffect, transform.position);
-                        if (keyNeed == 1) {
-                            dialogueBoxObject.StartDialogue("1 Keys is Used \nDoor is Unlocked");
-                        } else {
-                            dialogueBoxObject.StartDialogue(keyNeed + " Keys is Used \nDoor is Unlocked");
-                        }
-
-                        DoorOpenChanged();
-                    } else {
-                        Debug.LogWarning("Dialog Object not found");
                     }
-                    }
+                } else {
+                    iobj.TriggerDialogue(0);
                 }
-            } else {
-                Debug.LogWarning("Player Object not found");
             }
         }
     }
@@ -66,13 +58,15 @@ public class DoorController : MonoBehaviour
     }
 
     public void DoorEnter() {
-        if (isChangeScene == true) {
-            if (sceneName != "") {
-            SceneManager.LoadScene(sceneName);
-            Debug.Log("Enter Scene: " + sceneName);
-            } else {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                Debug.Log("Enter Scene: " + NameFromIndex(SceneManager.GetActiveScene().buildIndex + 1));
+        if (isOpen) {
+            if (isChangeScene == true) {
+                if (sceneName != "") {
+                    SceneManager.LoadScene(sceneName);
+                    Debug.Log("Enter Scene: " + sceneName);
+                } else {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    Debug.Log("Enter Scene: " + NameFromIndex(SceneManager.GetActiveScene().buildIndex + 1));
+                }
             }
         }
     }

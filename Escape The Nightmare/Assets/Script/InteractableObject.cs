@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.PlayerLoop;
 
 public class InteractableObject : MonoBehaviour
@@ -14,6 +15,8 @@ public class InteractableObject : MonoBehaviour
     public bool destroyWhenUsed;
     public KeyCode interactKey;
     public UnityEvent interactAction;
+
+    public Dialogue dialogue;
 
     void Start() {
 
@@ -51,5 +54,15 @@ public class InteractableObject : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) {
             isInRange = false;
         }
+    }
+
+    public void TriggerDialogue() {
+        FindAnyObjectByType<DialogueController>().StartDialogue(dialogue);
+    }
+    public void TriggerDialogue(int l) {
+        FindAnyObjectByType<DialogueController>().StartDialogue(l, dialogue);
+    }
+    public void TriggerDialogue(int l, int m) {
+        FindAnyObjectByType<DialogueController>().StartDialogue(l, m, dialogue);
     }
 }

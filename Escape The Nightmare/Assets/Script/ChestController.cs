@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ChestController : MonoBehaviour
 {
-    Animator animator;
-    public GameObject playerObject;
     public bool isOpen;
     public int keyGet = 1;
+
+    Animator animator;
     public AudioClip soundEffect;
+    InteractableObject iobj;
 
     public void OpenChest() {
+        iobj = transform.GetChild(0).gameObject.GetComponent<InteractableObject>();
         if (!isOpen){
-            PlayerManager pm = playerObject.GetComponent<PlayerManager>();
+            PlayerManager pm = FindObjectOfType<PlayerManager>().gameObject.GetComponent<PlayerManager>();
             if (pm) {
                 isOpen = true;
                 pm.PickUpKey(keyGet);

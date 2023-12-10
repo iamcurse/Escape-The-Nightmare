@@ -364,9 +364,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad147f3f87cf414d9c5bfadc6190583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentObject: {fileID: 0}
   isInRange: 0
-  isDestroyWhenUsed: 0
-  mainObject: {fileID: 0}
+  limitTimeOfUse: 0
+  timeOfUse: 1
+  destroyWhenUsed: 0
   interactKey: 323
   interactAction:
     m_PersistentCalls:
@@ -383,6 +385,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dialogue:
+    name: 
+    lines:
+    - Door is Locked
 --- !u!1 &7981034573729099083
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 7981034573729099083}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6632454, y: 0.16878566, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -644,12 +650,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c837080247ee248ae28ae53c92d95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorName: 
   isOpen: 0
   keyNeed: 1
   isChangeScene: 0
   sceneName: 
-  player: {fileID: 0}
-  mainObject: {fileID: 0}
-  doorFrameClosed: {fileID: 1378783960999446767}
-  doorFrameOpened: {fileID: 6520686745124439682}
   soundEffect: {fileID: 8300000, guid: 55b5a6413205c1b4da55f5940a7ce5e7, type: 3}
