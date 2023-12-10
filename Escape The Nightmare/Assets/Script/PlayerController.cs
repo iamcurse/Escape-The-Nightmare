@@ -8,8 +8,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 1f;
-    
-    public float collisionOffset = 0.05f;
+    public float Collider2DOffsetX = -0.0056f;
+    public float Collider2DOffsetY = -0.115f;
+    private float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
     public Attack attack;
     Vector2 movementInput;
@@ -50,8 +51,10 @@ public class PlayerController : MonoBehaviour
 
             if (movementInput.x < 0){
                 spriteRenderer.flipX = true;
+                this.GetComponent<BoxCollider2D>().offset = new Vector2(Collider2DOffsetX * -1, Collider2DOffsetY);
             } else if (movementInput.x > 0){
                 spriteRenderer.flipX = false;
+                this.GetComponent<BoxCollider2D>().offset = new Vector2(Collider2DOffsetX, Collider2DOffsetY);
             }
         }
     }

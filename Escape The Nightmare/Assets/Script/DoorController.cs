@@ -49,7 +49,7 @@ public class DoorController : MonoBehaviour
 
     public void DoorEnter() {
         if (isChangeScene == true) {
-            if (sceneName != null) {
+            if (sceneName != "") {
             SceneManager.LoadScene(sceneName);
             Debug.Log("Enter Scene: " + sceneName);
             } else {
@@ -61,11 +61,11 @@ public class DoorController : MonoBehaviour
 
     private static string NameFromIndex(int BuildIndex)
     {
-    string path = SceneUtility.GetScenePathByBuildIndex(BuildIndex);
-    int slash = path.LastIndexOf('/');
-    string name = path.Substring(slash + 1);
-    int dot = name.LastIndexOf('.');
-    return name.Substring(0, dot);
+        string path = SceneUtility.GetScenePathByBuildIndex(BuildIndex);
+        int slash = path.LastIndexOf('/');
+        string name = path.Substring(slash + 1);
+        int dot = name.LastIndexOf('.');
+        return name.Substring(0, dot);
     }
 
     void Start() {

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 645138350866691486}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.08}
+  m_Offset: {x: 0, y: 0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1423293031
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -2144938972, guid: ffc19669667c94442a37c8f5ba1c7f0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -261,7 +261,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1423293031
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -1314294720, guid: ffc19669667c94442a37c8f5ba1c7f0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -365,6 +365,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInRange: 0
+  isDestroyWhenUsed: 0
+  mainObject: {fileID: 0}
   interactKey: 323
   interactAction:
     m_PersistentCalls:
@@ -646,7 +648,7 @@ MonoBehaviour:
   keyNeed: 1
   isChangeScene: 0
   sceneName: Room2
-  player: {fileID: 230076867116486313, guid: c4749e6062d8e524bbac5b7444173bd7, type: 3}
+  player: {fileID: 0}
   gobj: {fileID: 7981034573729099083}
   doorFrameClosed: {fileID: 1378783960999446767}
   doorFrameOpened: {fileID: 6520686745124439682}
