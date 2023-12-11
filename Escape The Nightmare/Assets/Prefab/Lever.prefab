@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4471704175220389525}
   - component: {fileID: 4971643200881686820}
   - component: {fileID: 5061053578720305155}
+  - component: {fileID: 3921522641550242814}
+  - component: {fileID: 9176215802568138122}
   m_Layer: 0
   m_Name: Lever
   m_TagString: Untagged
@@ -130,3 +132,68 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 1.28}
   m_EdgeRadius: 0
+--- !u!114 &3921522641550242814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035645513496447846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cf266e9caa7ff41966e62f4624eb38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  interactAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9176215802568138122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035645513496447846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad147f3f87cf414d9c5bfadc6190583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentObject: {fileID: 0}
+  isInRange: 0
+  limitTimeOfUse: 0
+  timeOfUse: 1
+  destroyWhenUsed: 0
+  soundEffect: {fileID: 8300000, guid: 6a76d6584f8900148923aef176b59342, type: 3}
+  interactKey: 323
+  interactAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3921522641550242814}
+        m_TargetAssemblyTypeName: SwitchController, Assembly-CSharp
+        m_MethodName: Switch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  dialogue:
+    names: []
+    lines: []

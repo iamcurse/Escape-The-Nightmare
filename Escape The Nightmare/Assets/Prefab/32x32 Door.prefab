@@ -350,7 +350,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.48}
+  m_Size: {x: 0.24, y: 0.48}
   m_EdgeRadius: 0
 --- !u!114 &2719338755874035864
 MonoBehaviour:
@@ -387,7 +387,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   dialogue:
-    name: 
+    names: []
     lines:
     - Door is Locked
     - But The Door Doesn Not Have A Key Hole
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c837080247ee248ae28ae53c92d95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorName: 
+  isOpenByDefault: 0
   needKey: 1
   isOpen: 0
   keyNeed: 1

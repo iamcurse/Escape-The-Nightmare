@@ -128,6 +128,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7981034573729099083, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
   m_PrefabInstance: {fileID: 979640452}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &623939495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8825104561863826809, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
+  m_PrefabInstance: {fileID: 1304209397}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c837080247ee248ae28ae53c92d95c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &777746599 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4869671563186724259, guid: 9ce9671c70c92c04d871eb70eaabd38f, type: 3}
@@ -254,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: dialogue.lines.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: dialogue.lines.Array.data[0]
@@ -262,7 +273,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: dialogue.lines.Array.data[1]
-      value: You Unlocked The Door
+      value: But The Door Does Not Have A Key Hole awd
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 623939495}
+    - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenDoorWithKey
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DoorController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5990096655815798079, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: m_Name
@@ -7907,11 +7934,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852633244763826107, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 4.748723
+      value: 5.1972303
       objectReference: {fileID: 0}
     - target: {fileID: 2852633244763826107, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 6.3849545
+      value: 7.067377
       objectReference: {fileID: 0}
     - target: {fileID: 2852633244763826107, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_Tiles.Array.data[0].second.m_TileObjectToInstantiateIndex

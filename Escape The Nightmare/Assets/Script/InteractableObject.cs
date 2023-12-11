@@ -67,8 +67,11 @@ public class InteractableObject : MonoBehaviour
     public void TriggerDialogue() {
         FindAnyObjectByType<DialogueController>().StartDialogue(dialogue);
     }
-    public void TriggerDialogue(String line) {
+    public void TriggerDialogue(string line) {
         FindAnyObjectByType<DialogueController>().StartDialogue(line);
+    }
+    public void TriggerDialogue(string line, string name) {
+        FindAnyObjectByType<DialogueController>().StartDialogue(line, name);
     }
     public void TriggerDialogue(int l) {
         FindAnyObjectByType<DialogueController>().StartDialogue(l, dialogue);

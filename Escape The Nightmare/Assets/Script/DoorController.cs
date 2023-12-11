@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
+    public bool isOpenByDefault;
     public bool needKey = true;
     [ShowOnly] public bool isOpen;
     public int keyNeed = 1;
@@ -36,19 +37,10 @@ public class DoorController : MonoBehaviour
     }
 
     public void Switch(GameObject obj) {
-        
-        SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
-        InteractableObject interactableObject= obj.GetComponent<InteractableObject>();
         if (!isOpen) {
             OpenDoor();
-            spriteRenderer.flipX = true;
-            interactableObject.PlaySound();
-            interactableObject.TriggerDialogue(0);
         } else {
             CloseDoor();
-            spriteRenderer.flipX = false;
-            interactableObject.PlaySound();
-            interactableObject.TriggerDialogue(1);
         }
     }
 
@@ -58,11 +50,17 @@ public class DoorController : MonoBehaviour
         AudioSource.PlayClipAtPoint(doorOpenSound, transform.position);
         DoorOpenChanged();
     }
+        public void OpenDoorNoSound() {
+        isOpen = true;
+        animator.SetBool("isOpen", true);
+        DoorOpenChanged();
+    }
+
     public void CloseDoor() {
         isOpen = false;
         animator.SetBool("isOpen", false);
         AudioSource.PlayClipAtPoint(doorCloseSound, transform.position);
-        DoorOpenChangedBack();
+        DoorCloseChanged();
     }
 
     private void DoorOpenChanged() {
@@ -79,7 +77,7 @@ public class DoorController : MonoBehaviour
             spriteRenderer1.enabled = true;
         }
     }
-        private void DoorOpenChangedBack() {
+        private void DoorCloseChanged() {
         BoxCollider2D boxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
         if (boxCollider2D) {
             boxCollider2D.isTrigger = false;
@@ -118,5 +116,9 @@ public class DoorController : MonoBehaviour
     }
     private void Start() {
         animator = GetComponent<Animator>();
+        if (isOpenByDefault) {
+            needKey = false;
+            OpenDoorNoSound();
+        }
     }
 }

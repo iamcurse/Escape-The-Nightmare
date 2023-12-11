@@ -14,22 +14,19 @@ public class PlayerManager : MonoBehaviour
     public void PickUpKey(int key) {
         playerData.key += key;
         if (key == 1) {
-            iobj.dialogue.lines[9] = "You Found 1 Key";
-            iobj.TriggerDialogue(9);
+            iobj.TriggerDialogue("You Found 1 Key");
         } else {
-            iobj.dialogue.lines[9] = "You Found " + key + " Keys";
-            iobj.TriggerDialogue(9);
+            iobj.TriggerDialogue("You Found " + key + " Keys");
         }
     }
     public void UseKey(int key) {
         playerData.key -= key;
-        iobj.dialogue.lines[8] = "You Unlocked The Door!";
+        iobj.TriggerDialogue("You Unlocked The Door!");
         if (key == 1) {
-            iobj.dialogue.lines[9] = "You Used 1 Key";
+            iobj.TriggerDialogue("You Used 1 Key");
         } else {
-            iobj.dialogue.lines[9] = "You Used " + key +" Key";
+            iobj.TriggerDialogue("You Used " + key +" Key");
         }
-        iobj.TriggerDialogue(8, 9);
     }
     private void UpdateKeyCounter() {
         textMeshProUGUI.text = playerData.key.ToString();

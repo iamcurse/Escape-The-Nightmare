@@ -148,6 +148,7 @@ MonoBehaviour:
   limitTimeOfUse: 0
   timeOfUse: 1
   destroyWhenUsed: 0
+  soundEffect: {fileID: 0}
   interactKey: 323
   interactAction:
     m_PersistentCalls:
@@ -165,6 +166,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   dialogue:
-    name: Clue
+    names:
+    - 
     lines:
     - 

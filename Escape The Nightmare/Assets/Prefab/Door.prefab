@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c837080247ee248ae28ae53c92d95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorName: 
+  isOpenByDefault: 0
   needKey: 1
   isOpen: 0
   keyNeed: 1
@@ -565,7 +565,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   dialogue:
-    name: 
+    names:
+    - 
+    - 
     lines:
     - Door Is Locked
     - But The Door Does Not Have A Key Hole
