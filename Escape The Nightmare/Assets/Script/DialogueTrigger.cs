@@ -6,6 +6,11 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
+    public void DialogueMessage(string msg) {
+        dialogue.lines[0] = msg;
+        TriggerDialogue();
+    }
+
     public void TriggerDialogue() {
         FindAnyObjectByType<DialogueController>().StartDialogue(dialogue);
     }

@@ -96,7 +96,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8825104561863826809}
         m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
-        m_MethodName: DoorEnter
+        m_MethodName: DoorEnterSceneChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -117,8 +117,8 @@ GameObject:
   - component: {fileID: 2674150005057559529}
   - component: {fileID: 4369387130359542479}
   - component: {fileID: 3341991697507487880}
-  - component: {fileID: 8825104561863826809}
   - component: {fileID: 6109480781386407719}
+  - component: {fileID: 8825104561863826809}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -242,25 +242,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &8825104561863826809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990096655815798079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c837080247ee248ae28ae53c92d95c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  dialogueObject: {fileID: 0}
-  isOpen: 0
-  keyNeed: 1
-  isChangeScene: 0
-  sceneName: 
-  soundEffect: {fileID: 8300000, guid: 55b5a6413205c1b4da55f5940a7ce5e7, type: 3}
 --- !u!95 &6109480781386407719
 Animator:
   serializedVersion: 5
@@ -282,6 +263,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8825104561863826809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5990096655815798079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c837080247ee248ae28ae53c92d95c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorName: 
+  needKey: 1
+  isOpen: 0
+  keyNeed: 1
+  isChangeScene: 0
+  sceneName: 
+  doorOpenSound: {fileID: 8300000, guid: 55b5a6413205c1b4da55f5940a7ce5e7, type: 3}
+  doorCloseSound: {fileID: 8300000, guid: 7f50eb72ee5075a419b3a3d0a8bf4744, type: 3}
+  playerData: {fileID: 11400000, guid: 2027c65777ae62d4a814a93380880c97, type: 2}
 --- !u!1 &7163992301090130229
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,15 +544,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 5990096655815798079}
   isInRange: 0
+  limitTimeOfUse: 0
   timeOfUse: 1
   destroyWhenUsed: 0
+  soundEffect: {fileID: 0}
   interactKey: 323
   interactAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8825104561863826809}
         m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
-        m_MethodName: OpenDoor
+        m_MethodName: OpenDoorWithKey
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -560,3 +564,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dialogue:
+    name: 
+    lines:
+    - Door Is Locked
+    - But The Door Does Not Have A Key Hole

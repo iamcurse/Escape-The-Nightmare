@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &282517880 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7981034573729099083, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
+  m_PrefabInstance: {fileID: 979640452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &777746599 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4869671563186724259, guid: 9ce9671c70c92c04d871eb70eaabd38f, type: 3}
@@ -142,6 +147,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2719338755874035864, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
+      propertyPath: parentObject
+      value: 
+      objectReference: {fileID: 282517880}
     - target: {fileID: 2719338755874035864, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
       propertyPath: dialogue.lines.Array.size
       value: 1
@@ -205,11 +214,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2674150005057559529, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.593
       objectReference: {fileID: 0}
     - target: {fileID: 2674150005057559529, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.232
       objectReference: {fileID: 0}
     - target: {fileID: 2674150005057559529, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7898,11 +7907,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852633244763826107, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 6.8478346
+      value: 4.748723
       objectReference: {fileID: 0}
     - target: {fileID: 2852633244763826107, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 4.1224494
+      value: 6.3849545
       objectReference: {fileID: 0}
     - target: {fileID: 2852633244763826107, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_Tiles.Array.data[0].second.m_TileObjectToInstantiateIndex
@@ -12819,6 +12828,10 @@ PrefabInstance:
       propertyPath: dialogue.lines.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6707941950482210706, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2027c65777ae62d4a814a93380880c97, type: 2}
     - target: {fileID: 9084623654474642108, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
       propertyPath: m_Name
       value: Main Object

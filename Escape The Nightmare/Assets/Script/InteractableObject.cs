@@ -9,14 +9,18 @@ using UnityEngine.PlayerLoop;
 public class InteractableObject : MonoBehaviour
 {
     public GameObject parentObject;
-    public bool isInRange;
+
+    [ShowOnly] public bool isInRange;
     public bool limitTimeOfUse;
     public int timeOfUse = 1;
     public bool destroyWhenUsed;
-    public KeyCode interactKey;
+    public AudioClip soundEffect;
+    public KeyCode interactKey = KeyCode.Mouse0;
     public UnityEvent interactAction;
 
     public Dialogue dialogue;
+
+    private DialogueController dialogueController;
 
     void Start() {
 
@@ -24,20 +28,23 @@ public class InteractableObject : MonoBehaviour
 
     void Update() {
         if (isInRange) {
-            if (Input.GetKeyDown(interactKey)) {
-                interactAction.Invoke();
-                if (limitTimeOfUse) {
-                    timeOfUse--;
-                }
-                if (timeOfUse == 0) {
-                    if (destroyWhenUsed) {
-                        if (parentObject) {
-                            Destroy(parentObject);
+            dialogueController = FindAnyObjectByType<DialogueController>();
+            if (!dialogueController.animator.GetBool("isOpen")) {
+                if (Input.GetKeyDown(interactKey)) {
+                    interactAction.Invoke();
+                    if (limitTimeOfUse) {
+                        timeOfUse--;
+                    }
+                    if (timeOfUse == 0) {
+                        if (destroyWhenUsed) {
+                            if (parentObject) {
+                                Destroy(parentObject);
+                            } else {
+                                Destroy(this.gameObject);
+                            }
                         } else {
-                            Destroy(this.gameObject);
+                            Destroy(this);
                         }
-                    } else {
-                        Destroy(this);
                     }
                 }
             }
@@ -64,5 +71,9 @@ public class InteractableObject : MonoBehaviour
     }
     public void TriggerDialogue(int l, int m) {
         FindAnyObjectByType<DialogueController>().StartDialogue(l, m, dialogue);
+    }
+
+    public void PlaySound() {
+        AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 }

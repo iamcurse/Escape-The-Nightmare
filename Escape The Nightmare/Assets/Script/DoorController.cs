@@ -6,40 +6,63 @@ using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
-    public string doorName = "";
-    public bool isOpen;
+    public bool needKey = true;
+    [ShowOnly] public bool isOpen;
     public int keyNeed = 1;
     public bool isChangeScene;
     public string sceneName;
-    public AudioClip soundEffect;
+    public AudioClip doorOpenSound;
+    public AudioClip doorCloseSound;
     Animator animator;
+    public PlayerData playerData;
 
     InteractableObject iobj;
     
-    public void OpenDoor() {
+    public void OpenDoorWithKey() {
         if (!isOpen){
             iobj = transform.GetChild(0).gameObject.GetComponent<InteractableObject>();
-            PlayerManager pm = FindObjectOfType<PlayerManager>().gameObject.GetComponent<PlayerManager>();
-            if (pm) {
-                if (pm.keyCount >= keyNeed) {
-                    if (doorName == "") {
-                        isOpen = true;
-                            pm.UseKey(keyNeed);
-                            animator.SetTrigger("isOpen");
-                            AudioSource.PlayClipAtPoint(soundEffect, transform.position);
-                            DoorOpenChanged();
-                    } else {
-                        isOpen = true;
-                        pm.UseKey(keyNeed, doorName);
-                        animator.SetTrigger("isOpen");
-                        AudioSource.PlayClipAtPoint(soundEffect, transform.position);
-                        DoorOpenChanged();
-                    }
+            if (needKey) {
+                PlayerManager playerManager = FindObjectOfType<PlayerManager>().gameObject.GetComponent<PlayerManager>();
+                if (playerManager.playerData.key >= keyNeed) {
+                    playerManager.UseKey(keyNeed);
+                    OpenDoor();
                 } else {
                     iobj.TriggerDialogue(0);
                 }
+            } else {
+                iobj.TriggerDialogue(0, 1);
             }
         }
+    }
+
+    public void Switch(GameObject obj) {
+        
+        SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
+        InteractableObject interactableObject= obj.GetComponent<InteractableObject>();
+        if (!isOpen) {
+            OpenDoor();
+            spriteRenderer.flipX = true;
+            interactableObject.PlaySound();
+            interactableObject.TriggerDialogue(0);
+        } else {
+            CloseDoor();
+            spriteRenderer.flipX = false;
+            interactableObject.PlaySound();
+            interactableObject.TriggerDialogue(1);
+        }
+    }
+
+    public void OpenDoor() {
+        isOpen = true;
+        animator.SetBool("isOpen", true);
+        AudioSource.PlayClipAtPoint(doorOpenSound, transform.position);
+        DoorOpenChanged();
+    }
+    public void CloseDoor() {
+        isOpen = false;
+        animator.SetBool("isOpen", false);
+        AudioSource.PlayClipAtPoint(doorCloseSound, transform.position);
+        DoorOpenChangedBack();
     }
 
     private void DoorOpenChanged() {
@@ -56,8 +79,22 @@ public class DoorController : MonoBehaviour
             spriteRenderer1.enabled = true;
         }
     }
+        private void DoorOpenChangedBack() {
+        BoxCollider2D boxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
+        if (boxCollider2D) {
+            boxCollider2D.isTrigger = false;
+        }
+        SpriteRenderer spriteRenderer0 = transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();
+        if (spriteRenderer0) {
+            spriteRenderer0.enabled = true;
+        }
+        SpriteRenderer spriteRenderer1 = transform.GetChild(3).gameObject.GetComponent<SpriteRenderer>();
+        if (spriteRenderer1) {
+            spriteRenderer1.enabled = false;
+        }
+    }
 
-    public void DoorEnter() {
+    public void DoorEnterSceneChange() {
         if (isOpen) {
             if (isChangeScene == true) {
                 if (sceneName != "") {
@@ -79,8 +116,7 @@ public class DoorController : MonoBehaviour
         int dot = name.LastIndexOf('.');
         return name.Substring(0, dot);
     }
-
-    void Start() {
+    private void Start() {
         animator = GetComponent<Animator>();
     }
 }

@@ -1,28 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public int keyCount;
-    
+    public PlayerData playerData;
+    public TextMeshProUGUI textMeshProUGUI;
     DialogueTrigger iobj;
 
     public void PickUpKey(int key) {
-        keyCount += key;
-        iobj = this.gameObject.GetComponent<DialogueTrigger>();
+        playerData.key += key;
         if (key == 1) {
-            iobj.dialogue.lines[9] = "You Picked Up 1 Key";
+            iobj.dialogue.lines[9] = "You Found 1 Key";
             iobj.TriggerDialogue(9);
         } else {
-            iobj.dialogue.lines[9] = "You Picked Up " + key + " Keys";
+            iobj.dialogue.lines[9] = "You Found " + key + " Keys";
             iobj.TriggerDialogue(9);
         }
     }
     public void UseKey(int key) {
-        keyCount -= key;
-        iobj.dialogue.lines[8] = "You Unlocked The Door";
+        playerData.key -= key;
+        iobj.dialogue.lines[8] = "You Unlocked The Door!";
         if (key == 1) {
             iobj.dialogue.lines[9] = "You Used 1 Key";
         } else {
@@ -30,12 +31,14 @@ public class PlayerManager : MonoBehaviour
         }
         iobj.TriggerDialogue(8, 9);
     }
-    public void UseKey(int key, string doorName) {
-        keyCount -= key;
-        if (key == 1) {
-            
-        } else {
+    private void UpdateKeyCounter() {
+        textMeshProUGUI.text = playerData.key.ToString();
+    }
+    private void Update() {
+        UpdateKeyCounter();
+    }
 
-        }
+    private void Start() {
+        iobj = this.gameObject.GetComponent<DialogueTrigger>();
     }
 }
