@@ -137,15 +137,19 @@ PrefabInstance:
       objectReference: {fileID: 1879113670}
     - target: {fileID: 2719338755874035864, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
       propertyPath: dialogue.lines.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
       propertyPath: dialogue.names.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
       propertyPath: dialogue.lines.Array.data[1]
       value: But The Door Does Not Have A Key Hole
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719338755874035864, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
+      propertyPath: dialogue.lines.Array.data[2]
+      value: The Door is Open
       objectReference: {fileID: 0}
     - target: {fileID: 4137780968766782198, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
       propertyPath: sceneName
@@ -386,6 +390,10 @@ PrefabInstance:
     - target: {fileID: 5990096655815798079, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: m_Name
       value: Door (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825104561863826809, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
+      propertyPath: needSwitch
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8825104561863826809, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: isOpenByDefault
@@ -5292,11 +5300,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852633244763826107, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 7.803743
+      value: 5.675747
       objectReference: {fileID: 0}
     - target: {fileID: 2852633244763826107, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 7.254783
+      value: 7.894612
       objectReference: {fileID: 0}
     - target: {fileID: 2852633244763826107, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_Tiles.Array.data[0].second.m_TileObjectToInstantiateIndex
@@ -10608,7 +10616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: dialogue.names.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5524786465138494388, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -10637,6 +10645,10 @@ PrefabInstance:
     - target: {fileID: 8825104561863826809, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: needKey
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825104561863826809, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
+      propertyPath: needSwitch
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8825104561863826809, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: playerObject

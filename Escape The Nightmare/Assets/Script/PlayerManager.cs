@@ -21,7 +21,6 @@ public class PlayerManager : MonoBehaviour
     }
     public void UseKey(int key) {
         playerData.key -= key;
-        iobj.TriggerDialogue("You Unlocked The Door!");
         if (key == 1) {
             iobj.TriggerDialogue("You Used 1 Key");
         } else {

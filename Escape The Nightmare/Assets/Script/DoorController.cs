@@ -8,6 +8,7 @@ public class DoorController : MonoBehaviour
 {
     public bool isOpenByDefault;
     public bool needKey = true;
+    public bool needSwitch;
     [ShowOnly] public bool isOpen;
     public int keyNeed = 1;
     public bool isChangeScene;
@@ -22,16 +23,22 @@ public class DoorController : MonoBehaviour
     public void OpenDoorWithKey() {
         if (!isOpen){
             iobj = transform.GetChild(0).gameObject.GetComponent<InteractableObject>();
-            if (needKey) {
+            if (needKey && !needSwitch) {
                 PlayerManager playerManager = FindObjectOfType<PlayerManager>().gameObject.GetComponent<PlayerManager>();
                 if (playerManager.playerData.key >= keyNeed) {
+                    iobj.TriggerDialogue("You Unlocked The Door!");
                     playerManager.UseKey(keyNeed);
                     OpenDoor();
                 } else {
                     iobj.TriggerDialogue(0);
                 }
-            } else {
+            } else if (needSwitch && !needKey) {
                 iobj.TriggerDialogue(0, 1);
+            } else if (!needSwitch && !needKey) {
+                OpenDoor();
+                iobj.TriggerDialogue(2);
+            } else if (needKey && needKey) {
+                Debug.LogWarning("Door: \"" + this.GameObject().name + "\" needKey and needSwitch cannot be true at the same time.");
             }
         }
     }
@@ -118,6 +125,7 @@ public class DoorController : MonoBehaviour
         animator = GetComponent<Animator>();
         if (isOpenByDefault) {
             needKey = false;
+            needSwitch = true;
             OpenDoorNoSound();
         }
     }

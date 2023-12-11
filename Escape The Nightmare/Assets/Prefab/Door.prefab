@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpenByDefault: 0
   needKey: 1
+  needSwitch: 0
   isOpen: 0
   keyNeed: 1
   isChangeScene: 0
@@ -568,6 +569,8 @@ MonoBehaviour:
     names:
     - 
     - 
+    - 
     lines:
     - Door Is Locked
     - But The Door Does Not Have A Key Hole
+    - The Door is Open

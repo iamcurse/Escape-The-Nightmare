@@ -387,10 +387,14 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   dialogue:
-    names: []
+    names:
+    - 
+    - 
+    - 
     lines:
     - Door is Locked
-    - But The Door Doesn Not Have A Key Hole
+    - But The Door Does Not Have A Key Hole
+    - The Door is Open
 --- !u!1 &7981034573729099083
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpenByDefault: 0
   needKey: 1
+  needSwitch: 0
   isOpen: 0
   keyNeed: 1
   isChangeScene: 0
