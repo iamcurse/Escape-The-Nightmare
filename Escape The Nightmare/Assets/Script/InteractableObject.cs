@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -65,6 +66,9 @@ public class InteractableObject : MonoBehaviour
 
     public void TriggerDialogue() {
         FindAnyObjectByType<DialogueController>().StartDialogue(dialogue);
+    }
+    public void TriggerDialogue(String line) {
+        FindAnyObjectByType<DialogueController>().StartDialogue(line);
     }
     public void TriggerDialogue(int l) {
         FindAnyObjectByType<DialogueController>().StartDialogue(l, dialogue);

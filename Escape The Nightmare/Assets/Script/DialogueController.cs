@@ -34,6 +34,24 @@ public class DialogueController : MonoBehaviour
                 lines.Enqueue(line);
             }
                 DisplayNextLines();
+        } else {
+                foreach (string line in dialogue.lines) {
+                lines.Enqueue(line);
+            }
+        }
+    }
+    public void StartDialogue (string line) {
+        DisablePlayerMove();
+        isShowing = animator.GetBool("isOpen");
+        if (!isShowing) {
+            animator.SetBool("isOpen", true);
+
+            lines.Clear();
+
+            lines.Enqueue(line);
+            DisplayNextLines();
+        } else {
+            lines.Enqueue(line);
         }
     }
 
@@ -49,6 +67,8 @@ public class DialogueController : MonoBehaviour
             lines.Enqueue(dialogue.lines[l]);
 
             DisplayNextLines();
+        } else {
+            lines.Enqueue(dialogue.lines[l]);
         }
     }
 
@@ -65,6 +85,10 @@ public class DialogueController : MonoBehaviour
                 lines.Enqueue(dialogue.lines[i]);
             }
             DisplayNextLines();
+        } else {
+            for (int i = l; i <= m; i++) {
+                lines.Enqueue(dialogue.lines[i]);
+            }
         }
     }
 
