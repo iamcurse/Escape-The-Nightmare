@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.PlayerLoop;
 
 public class InteractableObject : MonoBehaviour
@@ -20,12 +23,8 @@ public class InteractableObject : MonoBehaviour
     public UnityEvent interactAction;
 
     public Dialogue dialogue;
-
     private DialogueController dialogueController;
-
-    void Start() {
-
-    }
+    [ShowOnly] public DialogueTrigger dialogueTrigger;
 
     void Update() {
         if (isInRange) {
@@ -64,23 +63,39 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    public void TriggerDialogue() {
-        FindAnyObjectByType<DialogueController>().StartDialogue(dialogue);
-    }
-    public void TriggerDialogue(string line) {
-        FindAnyObjectByType<DialogueController>().StartDialogue(line);
-    }
-    public void TriggerDialogue(string line, string name) {
-        FindAnyObjectByType<DialogueController>().StartDialogue(line, name);
-    }
-    public void TriggerDialogue(int l) {
-        FindAnyObjectByType<DialogueController>().StartDialogue(l, dialogue);
-    }
-    public void TriggerDialogue(int l, int m) {
-        FindAnyObjectByType<DialogueController>().StartDialogue(l, m, dialogue);
-    }
-
     public void PlaySound() {
         AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+    }
+
+    public void TriggerTheDialogue(string line) {
+        dialogueTrigger.TriggerDialogue(line);
+    }
+    public void TriggerAllDialogue() {
+        dialogueTrigger.TriggerDialogue(dialogue);
+    }
+    public void TriggerLineNumberDialogue(int l) {
+        dialogueTrigger.TriggerDialogue(l, dialogue);
+    }
+    public void TriggerDialogueRange(string range) {
+        try {
+            string[] lines = range.Split('-');
+                
+            if (lines.Length != 2 || Convert.ToInt32(lines[1]) > dialogue.lines.Length - 1) {
+                Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialoge Method's Input not correctly");
+                return;
+            }
+            
+            int l = Convert.ToInt32(lines[0]);
+            int m = Convert.ToInt32(lines[1]);
+
+            dialogueTrigger.TriggerDialogue(l, m, dialogue);
+        } catch (FormatException) {
+            Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialoge Method's Input not correctly");
+            return;
+        }
+    }
+
+    private void Start() {
+        dialogueTrigger = FindAnyObjectByType<DialogueTrigger>();
     }
 }

@@ -155,7 +155,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3789084564315027982}
         m_TargetAssemblyTypeName: InteractableObject, Assembly-CSharp
-        m_MethodName: TriggerDialogue
+        m_MethodName: TriggerAllDialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -170,3 +170,4 @@ MonoBehaviour:
     - 
     lines:
     - 
+  dialogueTrigger: {fileID: 0}

@@ -232,17 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     names: []
-    lines:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    lines: []
 --- !u!4 &7792220189657046168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7746844642864955694, guid: bc2f3ea6166bd7546ba36911761bdaf8, type: 3}

@@ -128,6 +128,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7981034573729099083, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
   m_PrefabInstance: {fileID: 979640452}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &424812653 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+  m_PrefabInstance: {fileID: 1692648848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad147f3f87cf414d9c5bfadc6190583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &623939495 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8825104561863826809, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
@@ -231,6 +242,30 @@ PrefabInstance:
       propertyPath: dialogue.lines.Array.data[2]
       value: The Door is Open
       objectReference: {fileID: 0}
+    - target: {fileID: 4137780968766782198, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
+      propertyPath: dialogue.lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137780968766782198, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
+      propertyPath: dialogue.names.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137780968766782198, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
+      propertyPath: dialogue.lines.Array.data[0]
+      value: You Unlocked The Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137780968766782198, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
+      propertyPath: dialogue.lines.Array.data[1]
+      value: Door is Locked
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137780968766782198, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
+      propertyPath: dialogue.lines.Array.data[2]
+      value: But The Door Does Not Have A Key Hole
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137780968766782198, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
+      propertyPath: dialogue.lines.Array.data[3]
+      value: The Door is Open
+      objectReference: {fileID: 0}
     - target: {fileID: 6548516553827010501, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -330,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: dialogue.lines.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: dialogue.lines.Array.data[0]
@@ -354,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 623939495}
     - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenDoorWithKey
+      value: OpenDoorInteract
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -363,6 +398,18 @@ PrefabInstance:
     - target: {fileID: 5990096655815798079, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: m_Name
       value: Door (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825104561863826809, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
+      propertyPath: dialogue.lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825104561863826809, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
+      propertyPath: dialogue.names.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825104561863826809, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
+      propertyPath: dialogue.lines.Array.data[3]
+      value: The Door is Open
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -437,6 +484,139 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad147f3f87cf414d9c5bfadc6190583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1692648848
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1106773326570231307, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: m_Name
+      value: Sign
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769775032601416651, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.21414058
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769775032601416651, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.648302
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769775032601416651, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00083379797
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769775032601416651, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769775032601416651, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769775032601416651, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769775032601416651, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769775032601416651, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769775032601416651, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769775032601416651, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: dialogue.lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: dialogue.names.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: dialogue.lines.Array.data[0]
+      value: Test1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: dialogue.lines.Array.data[1]
+      value: Test2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: dialogue.lines.Array.data[2]
+      value: Test3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: dialogue.lines.Array.data[3]
+      value: Test4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: dialogue.names.Array.data[0]
+      value: N1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: dialogue.names.Array.data[1]
+      value: N2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: dialogue.names.Array.data[2]
+      value: N3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: dialogue.names.Array.data[3]
+      value: N4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 424812653}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TriggerAllDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TriggerTheLineDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: InteractableObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
 --- !u!1 &1724799715 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5329360339078411737, guid: 9ce9671c70c92c04d871eb70eaabd38f, type: 3}
@@ -12806,7 +12986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: 9ce9671c70c92c04d871eb70eaabd38f, type: 3}
       propertyPath: dialogue.lines.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: 9ce9671c70c92c04d871eb70eaabd38f, type: 3}
       propertyPath: dialogue.lines.Array.data[0]
@@ -12914,7 +13094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4869671563186724259, guid: 9ce9671c70c92c04d871eb70eaabd38f, type: 3}
       propertyPath: keyGet
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4869671563186724259, guid: 9ce9671c70c92c04d871eb70eaabd38f, type: 3}
       propertyPath: playerObject
@@ -12975,6 +13155,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 922580367106193263, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419663161585563350, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
+      propertyPath: dialogue.lines.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5419663161585563350, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
@@ -13079,3 +13263,4 @@ SceneRoots:
   - {fileID: 1304209397}
   - {fileID: 1565350257}
   - {fileID: 700790982}
+  - {fileID: 1692648848}

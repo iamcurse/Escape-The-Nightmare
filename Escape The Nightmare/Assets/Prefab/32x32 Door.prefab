@@ -376,7 +376,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4137780968766782198}
         m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
-        m_MethodName: OpenDoorWithKey
+        m_MethodName: OpenDoorInteract
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -387,14 +387,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   dialogue:
-    names:
-    - 
-    - 
-    - 
-    lines:
-    - Door is Locked
-    - But The Door Does Not Have A Key Hole
-    - The Door is Open
+    names: []
+    lines: []
+  dialogueTrigger: {fileID: 0}
 --- !u!1 &7981034573729099083
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,3 +661,14 @@ MonoBehaviour:
   doorOpenSound: {fileID: 8300000, guid: 55b5a6413205c1b4da55f5940a7ce5e7, type: 3}
   doorCloseSound: {fileID: 8300000, guid: 7f50eb72ee5075a419b3a3d0a8bf4744, type: 3}
   playerData: {fileID: 11400000, guid: 2027c65777ae62d4a814a93380880c97, type: 2}
+  dialogue:
+    names:
+    - 
+    - 
+    - 
+    - 
+    lines:
+    - You Unlocked The Door
+    - Door is Locked
+    - But The Door Does Not Have A Key Hole
+    - The Door is Open

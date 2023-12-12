@@ -432,6 +432,7 @@ MonoBehaviour:
   dialogue:
     names: []
     lines: []
+  dialogueTrigger: {fileID: 0}
 --- !u!4 &1328414819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4724366263488887032, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
@@ -10846,7 +10847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: dialogue.names.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3806177700242907197, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
       propertyPath: m_Materials.Array.data[0]

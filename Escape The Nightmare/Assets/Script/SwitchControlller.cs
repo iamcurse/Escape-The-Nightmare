@@ -14,14 +14,18 @@ public class SwitchController : MonoBehaviour
         SpriteRenderer spriteRenderer = this.GameObject().GetComponent<SpriteRenderer>();
         if (!isActive) {
             isActive = true;
-            interactableObject.TriggerDialogue("You Activated The Swtich");
+            interactableObject.dialogueTrigger.TriggerDialogue("You Activated The Swtich");
             spriteRenderer.flipX = true;
             interactAction.Invoke();
         } else {
             spriteRenderer.flipX = false;
             isActive = false;
-            interactableObject.TriggerDialogue("You Deactivated The Swtich");
+            interactableObject.dialogueTrigger.TriggerDialogue("You Deactivated The Swtich");
             interactAction.Invoke();
         }
+    }
+
+    private void Start() {
+
     }
 }

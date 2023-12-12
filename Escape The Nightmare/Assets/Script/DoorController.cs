@@ -18,25 +18,27 @@ public class DoorController : MonoBehaviour
     Animator animator;
     public PlayerData playerData;
 
-    InteractableObject iobj;
+    InteractableObject interactableObject;
+
+    public Dialogue dialogue;
     
-    public void OpenDoorWithKey() {
+    public void OpenDoorInteract() {
         if (!isOpen){
-            iobj = transform.GetChild(0).gameObject.GetComponent<InteractableObject>();
+            interactableObject = transform.GetChild(0).gameObject.GetComponent<InteractableObject>();
             if (needKey && !needSwitch) {
                 PlayerManager playerManager = FindObjectOfType<PlayerManager>().gameObject.GetComponent<PlayerManager>();
                 if (playerManager.playerData.key >= keyNeed) {
-                    iobj.TriggerDialogue("You Unlocked The Door!");
+                    interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
                     playerManager.UseKey(keyNeed);
                     OpenDoor();
                 } else {
-                    iobj.TriggerDialogue(0);
+                    interactableObject.dialogueTrigger.TriggerDialogue(1, dialogue);
                 }
             } else if (needSwitch && !needKey) {
-                iobj.TriggerDialogue(0, 1);
+                interactableObject.dialogueTrigger.TriggerDialogue(1, 2, dialogue);
             } else if (!needSwitch && !needKey) {
                 OpenDoor();
-                iobj.TriggerDialogue(2);
+                interactableObject.dialogueTrigger.TriggerDialogue(3, dialogue);
             } else if (needKey && needKey) {
                 Debug.LogWarning("Door: \"" + this.GameObject().name + "\" needKey and needSwitch cannot be true at the same time.");
             }

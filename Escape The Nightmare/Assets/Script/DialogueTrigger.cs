@@ -6,12 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
-    public void DialogueMessage(string msg) {
-        dialogue.lines[0] = msg;
-        TriggerDialogue();
-    }
-
-    public void TriggerDialogue() {
+    public void TriggerDialogue(Dialogue dialogue) {
         FindAnyObjectByType<DialogueController>().StartDialogue(dialogue);
     }
     public void TriggerDialogue(string line) {
@@ -20,10 +15,10 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue(string line, string name) {
         FindAnyObjectByType<DialogueController>().StartDialogue(line, name);
     }
-    public void TriggerDialogue(int l) {
+    public void TriggerDialogue(int l, Dialogue dialogue) {
         FindAnyObjectByType<DialogueController>().StartDialogue(l, dialogue);
     }
-    public void TriggerDialogue(int l, int m) {
+    public void TriggerDialogue(int l, int m, Dialogue dialogue) {
         FindAnyObjectByType<DialogueController>().StartDialogue(l, m, dialogue);
     }
 }
