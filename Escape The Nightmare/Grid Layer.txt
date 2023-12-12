@@ -7,3 +7,7 @@ Objects Collision - The object player cannot walk past it, such as "Box", "Table
 Objects Top - If Objects Collision object is 2 blocks high, put the second block (Top piece) on the layer. The player can walk on this grid but the player will render behind this. Such as "The top part of stacking box"
 
 Don't put the chest or door from the Tile Pallette, use the one from the Prefab folder instead ("Project" Window "Assets/Prefabs")
+
+Making new Scene by go to "Scene" folder and Right click -> "Create" -> "Scene". Then delete "Main Camera" from Hierarchy window. Then drag "Main Object" from "Prefabs" folder to Hierarchy. If didn't see anything while doing map, double click every layer in "Main Object" -> "Grid"
+
+Ignore Error and click ok
