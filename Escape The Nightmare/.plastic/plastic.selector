@@ -1,4 +1,0 @@
-repository "Escape The Nightmare@iamcurse@cloud"
-  path "/"
-    br "/main"
-    co "/main"
