@@ -18,16 +18,15 @@ public class DoorController : MonoBehaviour
     Animator animator;
     public PlayerData playerData;
 
-    InteractableObject interactableObject;
+    private PlayerManager playerManager;
+    private InteractableObject interactableObject;
 
     public Dialogue dialogue;
     
     public void OpenDoorInteract() {
         if (!isOpen){
-            interactableObject = transform.GetChild(0).gameObject.GetComponent<InteractableObject>();
             if (needKey && !needSwitch) {
-                PlayerManager playerManager = FindObjectOfType<PlayerManager>().gameObject.GetComponent<PlayerManager>();
-                if (playerManager.playerData.key >= keyNeed) {
+                if (playerData.key >= keyNeed) {
                     interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
                     playerManager.UseKey(keyNeed);
                     OpenDoor();
@@ -45,7 +44,7 @@ public class DoorController : MonoBehaviour
         }
     }
 
-    public void Switch(GameObject obj) {
+    public void Switch() {
         if (!isOpen) {
             OpenDoor();
         } else {
@@ -124,6 +123,8 @@ public class DoorController : MonoBehaviour
         return name.Substring(0, dot);
     }
     private void Start() {
+        interactableObject = transform.GetChild(0).gameObject.GetComponent<InteractableObject>();
+        playerManager = FindObjectOfType<PlayerManager>().gameObject.GetComponent<PlayerManager>();
         animator = GetComponent<Animator>();
         if (isOpenByDefault) {
             needKey = false;

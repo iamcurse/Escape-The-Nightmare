@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4681492332423886651}
   - component: {fileID: 7966655160859304171}
   m_Layer: 0
-  m_Name: Hidden Key Skull
+  m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 882728367
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1682533862, guid: ffc19669667c94442a37c8f5ba1c7f0d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9abc0d6137c6a5f478ff4269ce328506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,9 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad147f3f87cf414d9c5bfadc6190583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentObject: {fileID: 0}
   isInRange: 0
+  limitTimeOfUse: 0
+  timeOfUse: 1
   destroyWhenUsed: 1
-  mainObject: {fileID: 0}
+  soundEffect: {fileID: 0}
   interactKey: 323
   interactAction:
     m_PersistentCalls:
@@ -152,3 +155,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dialogue:
+    names: []
+    lines: []
+  dialogueTrigger: {fileID: 0}
