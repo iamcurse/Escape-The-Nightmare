@@ -125,7 +125,7 @@ public class DoorController : MonoBehaviour
 
     private void Start() {
         interactableObject = this.transform.GetChild(0).GameObject().GetComponent<InteractableObject>();
-        playerManager = FindObjectOfType<PlayerManager>().GameObject().GetComponent<PlayerManager>();
+        playerManager = FindAnyObjectByType<PlayerManager>().GameObject().GetComponent<PlayerManager>();
         animator = GetComponent<Animator>();
         boxCollider2D = this.GameObject().GetComponent<BoxCollider2D>();
         spriteRenderer0 = transform.GetChild(2).GameObject().GetComponent<SpriteRenderer>();

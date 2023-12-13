@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
 {
     public PlayerData playerData;
     public TextMeshProUGUI textMeshProUGUI;
-    DialogueTrigger dialogueTrigger;
+    private DialogueTrigger dialogueTrigger;
 
     public void PickUpKey(int key) {
         playerData.key += key;
@@ -35,6 +35,6 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void Start() {
-        dialogueTrigger = this.gameObject.GetComponent<DialogueTrigger>();
+        dialogueTrigger = this.GameObject().GetComponent<DialogueTrigger>();
     }
 }

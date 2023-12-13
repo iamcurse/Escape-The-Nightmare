@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ChestController : MonoBehaviour
@@ -9,15 +10,15 @@ public class ChestController : MonoBehaviour
 
     Animator animator;
     public AudioClip soundEffect;
-    InteractableObject iobj;
+    PlayerManager playerManager;
+    InteractableObject interactableObject;
 
     public void OpenChest() {
-        iobj = transform.GetChild(0).gameObject.GetComponent<InteractableObject>();
+        interactableObject = transform.GetChild(0).GameObject().GetComponent<InteractableObject>();
         if (!isOpen){
-            PlayerManager pm = FindObjectOfType<PlayerManager>().gameObject.GetComponent<PlayerManager>();
-            if (pm) {
+            if (playerManager) {
                 isOpen = true;
-                pm.PickUpKey(keyGet);
+                playerManager.PickUpKey(keyGet);
                 animator.SetTrigger("isOpen");
                 AudioSource.PlayClipAtPoint(soundEffect, transform.position);
             } else {
@@ -28,6 +29,7 @@ public class ChestController : MonoBehaviour
 
     void Start()
     {
+        playerManager = FindAnyObjectByType<PlayerManager>().GameObject().GetComponent<PlayerManager>();
         animator = GetComponent<Animator>();
     }
 }
