@@ -232,7 +232,7 @@ PrefabInstance:
       objectReference: {fileID: 282517880}
     - target: {fileID: 2719338755874035864, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
       propertyPath: dialogue.lines.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
       propertyPath: dialogue.lines.Array.data[1]

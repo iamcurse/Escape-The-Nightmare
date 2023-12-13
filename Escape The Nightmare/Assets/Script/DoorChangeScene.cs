@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
 
-public class DoorChangeScene : MonoBehaviour
+public class DoorEnter : MonoBehaviour
 {
     public bool isInRange;
     public UnityEvent interactAction;

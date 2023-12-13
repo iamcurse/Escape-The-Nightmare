@@ -122,7 +122,7 @@ BoxCollider2D:
   m_Offset: {x: 0.1, y: -0.16}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.6282051, y: 0.5}
     oldSize: {x: 0.8125, y: 0.6041667}
     newSize: {x: 0.6041667, y: 0.7708333}
     adaptiveTilingThreshold: 0.5
@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  numOfUsed: 0
+  isOneTimeUsed: 0
+  isActiveByDefault: 0
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -172,11 +175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad147f3f87cf414d9c5bfadc6190583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 0}
   isInRange: 0
   limitTimeOfUse: 0
   timeOfUse: 1
   destroyWhenUsed: 0
+  objectToDestroy: {fileID: 0}
   soundEffect: {fileID: 8300000, guid: 6a76d6584f8900148923aef176b59342, type: 3}
   interactKey: 323
   interactAction:
@@ -195,5 +198,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   dialogue:
-    names: []
-    lines: []
+    names:
+    - 
+    - 
+    - 
+    lines:
+    - You Activated The Swtich
+    - You Deactivated The Swtich
+    - It seems like the switch can be used only once
+  dialogueTrigger: {fileID: 0}

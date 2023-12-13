@@ -52,14 +52,14 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Player")) {
+    private void OnTriggerEnter2D(Collider2D collider2D) {
+        if (collider2D.gameObject.CompareTag("Player")) {
             isInRange = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Player")) {
+    private void OnTriggerExit2D(Collider2D collider2D) {
+        if (collider2D.gameObject.CompareTag("Player")) {
             isInRange = false;
         }
     }

@@ -8,6 +8,8 @@ using UnityEngine.Events;
 public class SwitchController : MonoBehaviour
 {
     [ShowOnly] public bool isActive;
+    [ShowOnly] public int numOfUsed = 0;
+    public bool isOneTimeUsed;
     public bool isActiveByDefault;
     public UnityEvent interactAction;
 
@@ -15,16 +17,35 @@ public class SwitchController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     public void Switch() {
-        if (!isActive) {
-            isActive = true;
-            interactableObject.dialogueTrigger.TriggerDialogue("You Activated The Swtich");
-            spriteRenderer.flipX = true;
-            interactAction.Invoke();
+        if (isOneTimeUsed) {
+            if (numOfUsed == 0) {
+                numOfUsed++;
+                if (!isActive) {
+                    isActive = true;
+                    interactableObject.TriggerLineNumberDialogue(0);
+                    spriteRenderer.flipX = true;
+                    interactAction.Invoke();
+                } else {
+                    isActive = false;
+                    interactableObject.TriggerLineNumberDialogue(1);
+                    spriteRenderer.flipX = false;
+                    interactAction.Invoke();
+                }
+            } else {
+                interactableObject.TriggerLineNumberDialogue(2);
+            }
         } else {
-            isActive = false;
-            interactableObject.dialogueTrigger.TriggerDialogue("You Deactivated The Swtich");
-            spriteRenderer.flipX = false;
-            interactAction.Invoke();
+            if (!isActive) {
+                isActive = true;
+                interactableObject.TriggerLineNumberDialogue(0);
+                spriteRenderer.flipX = true;
+                interactAction.Invoke();
+            } else {
+                isActive = false;
+                interactableObject.TriggerLineNumberDialogue(1);
+                spriteRenderer.flipX = false;
+                interactAction.Invoke();
+            }
         }
     }
 
