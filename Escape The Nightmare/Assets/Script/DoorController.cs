@@ -45,10 +45,12 @@ public class DoorController : MonoBehaviour
     }
 
     public void Switch() {
-        if (!isOpen) {
-            OpenDoor();
-        } else {
-            CloseDoor();
+        if (needSwitch) {    
+            if (!isOpen) {
+                OpenDoor();
+            } else {
+                CloseDoor();
+            }
         }
     }
 

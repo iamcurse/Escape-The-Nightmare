@@ -198,11 +198,11 @@ PrefabInstance:
       objectReference: {fileID: 1879113670}
     - target: {fileID: 2719338755874035864, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
       propertyPath: dialogue.lines.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
       propertyPath: dialogue.names.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
       propertyPath: dialogue.lines.Array.data[1]
@@ -383,11 +383,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2035645513496447846, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
   m_PrefabInstance: {fileID: 3914784618663651847}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1256556532
+--- !u!114 &1256556533 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 9176215802568138122, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+  m_PrefabInstance: {fileID: 3914784618663651847}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256556531}
   m_Enabled: 1
@@ -395,44 +394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad147f3f87cf414d9c5bfadc6190583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 0}
-  isInRange: 0
-  limitTimeOfUse: 0
-  timeOfUse: 1
-  destroyWhenUsed: 0
-  soundEffect: {fileID: 8300000, guid: 6a76d6584f8900148923aef176b59342, type: 3}
-  interactKey: 323
-  interactAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1413024460}
-        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
-        m_MethodName: Switch
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1256556531}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1609000036}
-        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
-        m_MethodName: Switch
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1256556531}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  dialogue:
-    names: []
-    lines: []
-  dialogueTrigger: {fileID: 0}
 --- !u!4 &1328414819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4724366263488887032, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
@@ -10474,6 +10435,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -486
       objectReference: {fileID: 0}
+    - target: {fileID: 6367217165438860331, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367217165438860331, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367217165438860331, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367217165438860331, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367217165438860331, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367217165438860331, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7440093614215640673, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
       propertyPath: m_PointLightInnerRadius
       value: 0.128
@@ -10651,19 +10636,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2035645513496447846, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: m_Name
-      value: Lever
+      value: Switch
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: isActiveByDefault
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10674,7 +10667,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1609000036}
     - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1256556533}
+    - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
@@ -10686,6 +10687,10 @@ PrefabInstance:
       value: Switch
       objectReference: {fileID: 0}
     - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: TriggerAllDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DoorController, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -10694,20 +10699,28 @@ PrefabInstance:
       value: DoorController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: InteractableObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1256556531}
+      objectReference: {fileID: 0}
     - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1256556531}
+      objectReference: {fileID: 0}
     - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921522641550242814, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4471704175220389525, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10785,13 +10798,30 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.6041667
       objectReference: {fileID: 0}
+    - target: {fileID: 9176215802568138122, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: limitTimeOfUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176215802568138122, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: dialogue.lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176215802568138122, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: dialogue.names.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176215802568138122, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: dialogue.lines.Array.data[0]
+      value: What was that noise?
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176215802568138122, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
+      propertyPath: dialogue.names.Array.data[0]
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2035645513496447846, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1256556532}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 044bbe8c520e63a4ba1e77b3fa9a4ff9, type: 3}
 --- !u!1001 &4291454934528527524
 PrefabInstance:
@@ -10958,6 +10988,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1436414852421820450, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1682533862, guid: ffc19669667c94442a37c8f5ba1c7f0d, type: 3}
     - target: {fileID: 1436414852421820450, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

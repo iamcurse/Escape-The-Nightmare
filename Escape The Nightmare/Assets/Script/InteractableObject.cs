@@ -12,12 +12,11 @@ using UnityEngine.PlayerLoop;
 
 public class InteractableObject : MonoBehaviour
 {
-    public GameObject parentObject;
-
     [ShowOnly] public bool isInRange;
     public bool limitTimeOfUse;
     public int timeOfUse = 1;
     public bool destroyWhenUsed;
+    public GameObject objectToDestroy;
     public AudioClip soundEffect;
     public KeyCode interactKey = KeyCode.Mouse0;
     public UnityEvent interactAction;
@@ -28,17 +27,19 @@ public class InteractableObject : MonoBehaviour
 
     void Update() {
         if (isInRange) {
-            dialogueController = FindAnyObjectByType<DialogueController>();
             if (!dialogueController.animator.GetBool("isOpen")) {
                 if (Input.GetKeyDown(interactKey)) {
+                    if (soundEffect) {
+                        PlaySound();
+                    }
                     interactAction.Invoke();
                     if (limitTimeOfUse) {
                         timeOfUse--;
                     }
                     if (timeOfUse == 0) {
                         if (destroyWhenUsed) {
-                            if (parentObject) {
-                                Destroy(parentObject);
+                            if (objectToDestroy) {
+                                Destroy(objectToDestroy);
                             } else {
                                 Destroy(this.gameObject);
                             }
@@ -96,6 +97,7 @@ public class InteractableObject : MonoBehaviour
     }
 
     private void Start() {
+        dialogueController = FindAnyObjectByType<DialogueController>();
         dialogueTrigger = FindAnyObjectByType<DialogueTrigger>();
     }
 }
