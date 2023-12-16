@@ -8,14 +8,14 @@ public class DoorController : MonoBehaviour
 {
     public bool isOpenByDefault;
     public bool needKey = true;
+    public Item key;
     public bool needSwitch;
     [ShowOnly] public bool isOpen;
-    public int keyNeed = 1;
     public bool isChangeScene;
     public string sceneName;
     public AudioClip doorOpenSound;
     public AudioClip doorCloseSound;
-    Animator animator;
+    private Animator animator;
     public PlayerData playerData;
 
     private PlayerManager playerManager;
@@ -23,16 +23,16 @@ public class DoorController : MonoBehaviour
 
     public Dialogue dialogue;
 
-    private BoxCollider2D boxCollider2D;
+    private BoxCollider2D[] boxCollider2D;
     private SpriteRenderer spriteRenderer0;
     private SpriteRenderer spriteRenderer1;
     
     public void OpenDoorInteract() {
         if (!isOpen){
             if (needKey && !needSwitch) {
-                if (playerData.key >= keyNeed) {
+                if (InventoryManager.Instance.CheckItem(key)) {
                     interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
-                    playerManager.UseKey(keyNeed);
+                    InventoryManager.Instance.Remove(key);
                     OpenDoor();
                 } else {
                     interactableObject.dialogueTrigger.TriggerDialogue(1, dialogue);
@@ -78,8 +78,8 @@ public class DoorController : MonoBehaviour
     }
 
     private void DoorOpenChanged() {    
-        if (boxCollider2D) {
-            boxCollider2D.isTrigger = true;
+        if (boxCollider2D[0]) {
+            boxCollider2D[0].isTrigger = true;
         }
         if (spriteRenderer0) {
             spriteRenderer0.enabled = false;
@@ -89,8 +89,8 @@ public class DoorController : MonoBehaviour
         }
     }
     private void DoorCloseChanged() {
-        if (boxCollider2D) {
-            boxCollider2D.isTrigger = false;
+        if (boxCollider2D[0]) {
+            boxCollider2D[0].isTrigger = false;
         }
         if (spriteRenderer0) {
             spriteRenderer0.enabled = true;
@@ -124,12 +124,12 @@ public class DoorController : MonoBehaviour
     }
 
     private void Start() {
-        interactableObject = this.transform.GetChild(0).GameObject().GetComponent<InteractableObject>();
+        interactableObject = this.GameObject().GetComponent<InteractableObject>();
         playerManager = FindAnyObjectByType<PlayerManager>().GameObject().GetComponent<PlayerManager>();
-        animator = GetComponent<Animator>();
-        boxCollider2D = this.GameObject().GetComponent<BoxCollider2D>();
-        spriteRenderer0 = transform.GetChild(2).GameObject().GetComponent<SpriteRenderer>();
-        spriteRenderer1 = transform.GetChild(3).GameObject().GetComponent<SpriteRenderer>();
+        animator = this.GameObject().GetComponent<Animator>();
+        boxCollider2D = this.GameObject().GetComponents<BoxCollider2D>();
+        spriteRenderer0 = transform.GetChild(1).GameObject().GetComponent<SpriteRenderer>();
+        spriteRenderer1 = transform.GetChild(2).GameObject().GetComponent<SpriteRenderer>();
         if (isOpenByDefault) {
             needKey = false;
             needSwitch = true;

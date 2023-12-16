@@ -48,7 +48,7 @@ TagManager:
   - name: Ground Item
     uniqueID: 613808303
     locked: 0
-  - name: Walls
+  - name: Wall
     uniqueID: 1332664233
     locked: 0
   - name: Object

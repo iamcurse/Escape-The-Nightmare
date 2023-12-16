@@ -21,33 +21,42 @@ public class SwitchController : MonoBehaviour
             if (numOfUsed == 0) {
                 numOfUsed++;
                 if (!isActive) {
-                    isActive = true;
-                    interactableObject.TriggerLineNumberDialogue(0);
-                    spriteRenderer.flipX = true;
-                    interactAction.Invoke();
+                    Active();
                 } else {
-                    isActive = false;
-                    interactableObject.TriggerLineNumberDialogue(1);
-                    spriteRenderer.flipX = false;
-                    interactAction.Invoke();
+                    Deactive();
                 }
             } else {
                 interactableObject.TriggerLineNumberDialogue(2);
             }
         } else {
             if (!isActive) {
-                isActive = true;
-                interactableObject.TriggerLineNumberDialogue(0);
-                spriteRenderer.flipX = true;
-                interactAction.Invoke();
+                Active();
             } else {
-                isActive = false;
-                interactableObject.TriggerLineNumberDialogue(1);
-                spriteRenderer.flipX = false;
-                interactAction.Invoke();
+                Deactive();
             }
         }
     }
+
+private void Active() {
+        isActive = true;
+        interactableObject.TriggerLineNumberDialogue(0);
+        if (spriteRenderer.flipX == false) {
+            spriteRenderer.flipX = true;
+        } else {
+            spriteRenderer.flipX = false;
+        }
+        interactAction.Invoke();
+    }
+private void Deactive() {
+        isActive = false;
+        interactableObject.TriggerLineNumberDialogue(1);
+        if (spriteRenderer.flipX == true) {
+            spriteRenderer.flipX = false;
+        } else {
+            spriteRenderer.flipX = true;
+        }
+        interactAction.Invoke();
+}
 
     private void Start() {
         interactableObject = this.GameObject().GetComponent<InteractableObject>();

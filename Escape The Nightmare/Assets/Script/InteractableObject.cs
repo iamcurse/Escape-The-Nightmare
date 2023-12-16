@@ -1,14 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
-using UnityEngine.PlayerLoop;
 
 public class InteractableObject : MonoBehaviour
 {
@@ -20,6 +13,7 @@ public class InteractableObject : MonoBehaviour
     public AudioClip soundEffect;
     public KeyCode interactKey = KeyCode.Mouse0;
     public UnityEvent interactAction;
+    public UnityEvent UseItemAction;
 
     public Dialogue dialogue;
     private DialogueController dialogueController;
@@ -94,6 +88,22 @@ public class InteractableObject : MonoBehaviour
             Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialoge Method's Input not correctly");
             return;
         }
+    }
+
+    public void AddItem(Item item) {
+        InventoryManager.Instance.Add(item);
+    }
+    public void UseItem(Item item) {
+        if (InventoryManager.Instance.CheckItem(item)) {
+            InventoryManager.Instance.Remove(item);
+            UseItemAction.Invoke();
+        } else {
+            TriggerTheDialogue("You do not have required item");
+        }
+    }
+
+    public void DestroyThisObject() {
+        Destroy(this.GameObject());
     }
 
     private void Start() {

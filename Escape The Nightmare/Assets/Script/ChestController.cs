@@ -1,35 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ChestController : MonoBehaviour
 {
     public bool isOpen;
-    public int keyGet = 1;
+    private int Key(int k) {
+        if (k < 0) {
+            return k * -1;
+        } else {
+            return k;
+        }
+    }
 
     Animator animator;
     public AudioClip soundEffect;
     PlayerManager playerManager;
+    public UnityEvent openChestAction;
     InteractableObject interactableObject;
 
+    public Dialogue dialogue;
+
     public void OpenChest() {
-        interactableObject = transform.GetChild(0).GameObject().GetComponent<InteractableObject>();
         if (!isOpen){
-            if (playerManager) {
-                isOpen = true;
-                playerManager.PickUpKey(keyGet);
-                animator.SetTrigger("isOpen");
-                AudioSource.PlayClipAtPoint(soundEffect, transform.position);
-            } else {
-                Debug.LogWarning("Player Object not found");
-            }
+            interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
+            openChestAction.Invoke();
         }
     }
 
     void Start()
     {
         playerManager = FindAnyObjectByType<PlayerManager>().GameObject().GetComponent<PlayerManager>();
+        interactableObject = this.GameObject().GetComponent<InteractableObject>();
         animator = GetComponent<Animator>();
     }
 }

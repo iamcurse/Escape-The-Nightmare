@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +20,7 @@ public class DialogueController : MonoBehaviour
     void Start() {
         lines = new Queue<string>();
         names = new Queue<string>();
+        
     }
 
     public void StartDialogue (Dialogue dialogue) {

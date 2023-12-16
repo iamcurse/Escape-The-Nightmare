@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    private PlayerManager playerManager;
     public string sceneName;
     public void ChangeScene() {
         if (sceneName != "") {
@@ -22,5 +23,10 @@ public class SceneChanger : MonoBehaviour
         string name = path.Substring(slash + 1);
         int dot = name.LastIndexOf('.');
         return name.Substring(0, dot);
+    }
+
+    private void Start() {
+        playerManager = FindFirstObjectByType<PlayerManager>();
+        playerManager.playerData.SceneName = NameFromIndex(SceneManager.GetActiveScene().buildIndex);
     }
 }

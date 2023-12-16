@@ -6,14 +6,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
 
-public class DoorEnter : MonoBehaviour
+public class DoorChangeScene : MonoBehaviour
 {
-    public bool isInRange;
+    [ShowOnly] public bool isInRange;
     public UnityEvent interactAction;
-
-    void Start() {
-
-    }
 
     void Update() {
         if (isInRange) {
@@ -26,7 +22,6 @@ public class DoorEnter : MonoBehaviour
             isInRange = true;
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
             isInRange = false;
