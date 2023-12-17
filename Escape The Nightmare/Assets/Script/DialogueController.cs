@@ -13,20 +13,19 @@ public class DialogueController : MonoBehaviour
     private Queue<string> lines;
     private Queue<string> names;
 
-    private bool isShowing;
+    private bool isRunning;
 
-    private PlayerController playerObject;
+    private PlayerController playerController;
 
     void Start() {
+        playerController = FindAnyObjectByType<PlayerController>();
         lines = new Queue<string>();
         names = new Queue<string>();
         
     }
 
     public void StartDialogue (Dialogue dialogue) {
-        DisablePlayerMove();
-        isShowing = animator.GetBool("isOpen");
-        if (!isShowing) {
+        if (!isRunning) {
             animator.SetBool("isOpen", true);
 
             names.Clear();
@@ -49,9 +48,7 @@ public class DialogueController : MonoBehaviour
         }
     }
     public void StartDialogue (string line) {
-        DisablePlayerMove();
-        isShowing = animator.GetBool("isOpen");
-        if (!isShowing) {
+        if (!isRunning) {
             animator.SetBool("isOpen", true);
 
             names.Clear();
@@ -65,10 +62,8 @@ public class DialogueController : MonoBehaviour
             lines.Enqueue(line);
         }
     }
-        public void StartDialogue (string line, string name) {
-        DisablePlayerMove();
-        isShowing = animator.GetBool("isOpen");
-        if (!isShowing) {
+    public void StartDialogue (string line, string name) {
+        if (!isRunning) {
             animator.SetBool("isOpen", true);
 
             names.Clear();
@@ -83,9 +78,7 @@ public class DialogueController : MonoBehaviour
         }
     }
     public void StartDialogue (int l, Dialogue dialogue) {
-        DisablePlayerMove();
-        isShowing = animator.GetBool("isOpen");
-        if (!isShowing) {
+        if (!isRunning) {
             animator.SetBool("isOpen", true);
             
             names.Clear();
@@ -102,9 +95,7 @@ public class DialogueController : MonoBehaviour
     }
 
     public void StartDialogue (int l, int m, Dialogue dialogue) {
-        DisablePlayerMove();
-        isShowing = animator.GetBool("isOpen");
-        if (!isShowing) {
+        if (!isRunning) {
             animator.SetBool("isOpen", true);
 
             names.Clear();
@@ -124,7 +115,7 @@ public class DialogueController : MonoBehaviour
     }
 
     public void DisplayNextLines() {
-        if (lines.Count == 0 || names.Count == 0) {
+        if (lines.Count == 0) {
             EndDialogue();
             return;
         }
@@ -135,6 +126,7 @@ public class DialogueController : MonoBehaviour
     }
 
     IEnumerator TypeLine (string line, string name) {
+        isRunning = true;
         nameText.text = name;
         dialogueText.text = "";
         foreach (char c in line.ToCharArray()) {
@@ -144,16 +136,16 @@ public class DialogueController : MonoBehaviour
     }
 
     private void DisablePlayerMove() {
-        playerObject = FindAnyObjectByType<PlayerController>();
-        playerObject.LockMovement();
+        playerController.LockMovement();
     }
     private void EnablePlayerMove() {
-        playerObject = FindAnyObjectByType<PlayerController>();
-        playerObject.UnlockMovement();
+        
+        playerController.UnlockMovement();
     }
 
     public void EndDialogue() {
         animator.SetBool("isOpen", false);
-        EnablePlayerMove();
+        //EnablePlayerMove();
+        isRunning = false;
     }
 }

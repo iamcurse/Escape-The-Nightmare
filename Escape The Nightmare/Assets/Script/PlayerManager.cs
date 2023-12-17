@@ -8,9 +8,9 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public PlayerData playerData;
-    private DialogueTrigger dialogueTrigger;
+    private DialogueController dialogueController;
 
     private void Start() {
-        dialogueTrigger = this.GameObject().GetComponent<DialogueTrigger>();
+        dialogueController = this.GameObject().GetComponent<DialogueController>();
     }
 }

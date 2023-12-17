@@ -9,28 +9,37 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
-    public List<Item> Items = new List<Item>();
+    public Inventory inventory;
 
     public Transform ItemContent;
     public GameObject InventoryItem;
 
+    private DialogueTrigger dialogueTrigger;
+
     private void Awake(){
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        ListItems();
+        dialogueTrigger = FindFirstObjectByType<DialogueTrigger>();
     }
 
     public void Add(Item item) {
-        Items.Add(item);
+        dialogueTrigger.TriggerDialogue("You Found A " + item.itemName);
+        inventory.Items.Add(item);
         ListItems();
     }
     public bool CheckItem(Item item) {
-        if (Items.Contains(item)) {
+        if (inventory.Items.Contains(item)) {
             return true;
         } else {
             return false;
         }
     }
     public void Remove(Item item) {
-        Items.Remove(item);
+        dialogueTrigger.TriggerDialogue("You Use A " + item.itemName);
+        inventory.Items.Remove(item);
         ListItems();
     }
 
@@ -39,7 +48,7 @@ public class InventoryManager : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        foreach (var item in Items) {
+        foreach (var item in inventory.Items) {
             GameObject gameObject = Instantiate(InventoryItem, ItemContent);
             var itemName = gameObject.transform.Find("ItemName").GetComponent<TMP_Text>();
             var itemIcon = gameObject.transform.Find("ItemIcon").GetComponent<Image>();
