@@ -422,17 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94654e4d770e2ae4a8d7c11bacdb85b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1502714295 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2990060861259990583, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
-  m_PrefabInstance: {fileID: 1923155149}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64a542c74283d34439a485c19b177304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1609000036 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8825104561863826809, guid: ca1b3bf918e9dd2439cf279202271466, type: 3}
@@ -10911,6 +10900,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
       propertyPath: destroyWhenUsed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
+      propertyPath: dialogue.lines.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
+      propertyPath: dialogue.names.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
@@ -10936,7 +10933,7 @@ PrefabInstance:
     - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1502714295}
+      objectReference: {fileID: 1891209631}
     - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -10963,7 +10960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Add
+      value: AddItem
       objectReference: {fileID: 0}
     - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -10979,7 +10976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: InventoryManager, Assembly-CSharp
+      value: InteractableObject, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -11067,9 +11064,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1923155149}
+  - {fileID: 2905866049669354040}
   - {fileID: 979640452}
-  - {fileID: 4549666958494948573}
   - {fileID: 4291454934528527524}
   - {fileID: 1446824133}
-  - {fileID: 2905866049669354040}
+  - {fileID: 4549666958494948573}
   - {fileID: 3914784618663651847}

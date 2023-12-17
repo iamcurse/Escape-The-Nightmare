@@ -329,9 +329,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpenByDefault: 0
   needKey: 1
+  key: {fileID: 11400000, guid: 201fa46ab8bb76c4e8582ce4bbe177bf, type: 2}
   needSwitch: 0
   isOpen: 0
-  keyNeed: 1
   isChangeScene: 0
   sceneName: 
   doorOpenSound: {fileID: 8300000, guid: 55b5a6413205c1b4da55f5940a7ce5e7, type: 3}
@@ -382,6 +382,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  UseItemAction:
+    m_PersistentCalls:
+      m_Calls: []
   dialogue:
     names: []
     lines: []

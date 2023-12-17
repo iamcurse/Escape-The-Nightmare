@@ -18,6 +18,10 @@ public class InteractableObject : MonoBehaviour
     public Dialogue dialogue;
     private DialogueController dialogueController;
     [ShowOnly] public DialogueTrigger dialogueTrigger;
+    private PlayerManager playerManager;
+    private GameOver gameOver;
+
+    private bool trap;
 
     void Update() {
         if (isInRange) {
@@ -42,6 +46,10 @@ public class InteractableObject : MonoBehaviour
                         }
                     }
                 }
+            }
+
+            if (trap) {
+                GameOver();
             }
         }
     }
@@ -91,11 +99,11 @@ public class InteractableObject : MonoBehaviour
     }
 
     public void AddItem(Item item) {
-        InventoryManager.Instance.Add(item);
+        InventoryManager.manager.Add(item);
     }
     public void UseItem(Item item) {
-        if (InventoryManager.Instance.CheckItem(item)) {
-            InventoryManager.Instance.Remove(item);
+        if (InventoryManager.manager.CheckItem(item)) {
+            InventoryManager.manager.Remove(item);
             UseItemAction.Invoke();
         } else {
             TriggerTheDialogue("You do not have required item");
@@ -106,7 +114,20 @@ public class InteractableObject : MonoBehaviour
         Destroy(this.GameObject());
     }
 
+    public void TrapActive() {
+        trap = true;
+    }
+    public void TrapDeactive() {
+        trap = false;
+    }
+
+    public void GameOver() {
+        gameOver.GameOverTrigger(playerManager.playerData.SceneName);
+    }
+
     private void Start() {
+        playerManager = FindAnyObjectByType<PlayerManager>();
+        gameOver = FindAnyObjectByType<GameOver>(FindObjectsInactive.Include);
         dialogueController = FindAnyObjectByType<DialogueController>();
         dialogueTrigger = FindAnyObjectByType<DialogueTrigger>();
     }

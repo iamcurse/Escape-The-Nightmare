@@ -30,9 +30,9 @@ public class DoorController : MonoBehaviour
     public void OpenDoorInteract() {
         if (!isOpen){
             if (needKey && !needSwitch) {
-                if (InventoryManager.Instance.CheckItem(key)) {
+                if (InventoryManager.manager.CheckItem(key)) {
                     interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
-                    InventoryManager.Instance.Remove(key);
+                    InventoryManager.manager.Remove(key);
                     OpenDoor();
                 } else {
                     interactableObject.dialogueTrigger.TriggerDialogue(1, dialogue);

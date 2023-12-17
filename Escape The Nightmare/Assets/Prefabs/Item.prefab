@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000011921, y: 31.927979}
+  m_AnchoredPosition: {x: -0.000011921, y: -15.928}
   m_SizeDelta: {x: 120, y: 63.855}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5486801057724055185
@@ -65,7 +65,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Potion
+  m_text: 'Item
+
+    Name'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c802f3995a2f9c4fb69e7105961905a, type: 2}
   m_sharedMaterial: {fileID: 1193335978250947348, guid: 7c802f3995a2f9c4fb69e7105961905a, type: 2}
