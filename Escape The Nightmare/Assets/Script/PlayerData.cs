@@ -5,5 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class PlayerData : ScriptableObject
 {
-    public int key;
+    [ShowOnly] public string SceneName;
+    public bool InventoryPerScene;
 }

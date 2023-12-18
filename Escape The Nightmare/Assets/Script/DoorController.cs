@@ -8,27 +8,31 @@ public class DoorController : MonoBehaviour
 {
     public bool isOpenByDefault;
     public bool needKey = true;
+    public Item key;
     public bool needSwitch;
     [ShowOnly] public bool isOpen;
-    public int keyNeed = 1;
     public bool isChangeScene;
     public string sceneName;
     public AudioClip doorOpenSound;
     public AudioClip doorCloseSound;
-    Animator animator;
+    private Animator animator;
     public PlayerData playerData;
 
     private PlayerManager playerManager;
     private InteractableObject interactableObject;
 
     public Dialogue dialogue;
+
+    private BoxCollider2D[] boxCollider2D;
+    private SpriteRenderer spriteRenderer0;
+    private SpriteRenderer spriteRenderer1;
     
     public void OpenDoorInteract() {
         if (!isOpen){
             if (needKey && !needSwitch) {
-                if (playerData.key >= keyNeed) {
+                if (InventoryManager.manager.CheckItem(key)) {
                     interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
-                    playerManager.UseKey(keyNeed);
+                    InventoryManager.manager.Remove(key);
                     OpenDoor();
                 } else {
                     interactableObject.dialogueTrigger.TriggerDialogue(1, dialogue);
@@ -45,10 +49,12 @@ public class DoorController : MonoBehaviour
     }
 
     public void Switch() {
-        if (!isOpen) {
-            OpenDoor();
-        } else {
-            CloseDoor();
+        if (needSwitch) {    
+            if (!isOpen) {
+                OpenDoor();
+            } else {
+                CloseDoor();
+            }
         }
     }
 
@@ -58,7 +64,7 @@ public class DoorController : MonoBehaviour
         AudioSource.PlayClipAtPoint(doorOpenSound, transform.position);
         DoorOpenChanged();
     }
-        public void OpenDoorNoSound() {
+    public void OpenDoorNoSound() {
         isOpen = true;
         animator.SetBool("isOpen", true);
         DoorOpenChanged();
@@ -71,30 +77,24 @@ public class DoorController : MonoBehaviour
         DoorCloseChanged();
     }
 
-    private void DoorOpenChanged() {
-        BoxCollider2D boxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
-        if (boxCollider2D) {
-            boxCollider2D.isTrigger = true;
+    private void DoorOpenChanged() {    
+        if (boxCollider2D[0]) {
+            boxCollider2D[0].isTrigger = true;
         }
-        SpriteRenderer spriteRenderer0 = transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();
         if (spriteRenderer0) {
             spriteRenderer0.enabled = false;
         }
-        SpriteRenderer spriteRenderer1 = transform.GetChild(3).gameObject.GetComponent<SpriteRenderer>();
         if (spriteRenderer1) {
             spriteRenderer1.enabled = true;
         }
     }
-        private void DoorCloseChanged() {
-        BoxCollider2D boxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
-        if (boxCollider2D) {
-            boxCollider2D.isTrigger = false;
+    private void DoorCloseChanged() {
+        if (boxCollider2D[0]) {
+            boxCollider2D[0].isTrigger = false;
         }
-        SpriteRenderer spriteRenderer0 = transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();
         if (spriteRenderer0) {
             spriteRenderer0.enabled = true;
         }
-        SpriteRenderer spriteRenderer1 = transform.GetChild(3).gameObject.GetComponent<SpriteRenderer>();
         if (spriteRenderer1) {
             spriteRenderer1.enabled = false;
         }
@@ -122,10 +122,14 @@ public class DoorController : MonoBehaviour
         int dot = name.LastIndexOf('.');
         return name.Substring(0, dot);
     }
+
     private void Start() {
-        interactableObject = transform.GetChild(0).gameObject.GetComponent<InteractableObject>();
-        playerManager = FindObjectOfType<PlayerManager>().gameObject.GetComponent<PlayerManager>();
-        animator = GetComponent<Animator>();
+        interactableObject = this.GameObject().GetComponent<InteractableObject>();
+        playerManager = FindAnyObjectByType<PlayerManager>().GameObject().GetComponent<PlayerManager>();
+        animator = this.GameObject().GetComponent<Animator>();
+        boxCollider2D = this.GameObject().GetComponents<BoxCollider2D>();
+        spriteRenderer0 = transform.GetChild(1).GameObject().GetComponent<SpriteRenderer>();
+        spriteRenderer1 = transform.GetChild(2).GameObject().GetComponent<SpriteRenderer>();
         if (isOpenByDefault) {
             needKey = false;
             needSwitch = true;

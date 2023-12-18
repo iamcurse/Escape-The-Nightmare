@@ -1,40 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
     public PlayerData playerData;
-    public TextMeshProUGUI textMeshProUGUI;
-    DialogueTrigger dialogueTrigger;
+    private InventoryManager inventoryManager;
 
-    public void PickUpKey(int key) {
-        playerData.key += key;
-        if (key == 1) {
-            dialogueTrigger.TriggerDialogue("You Found 1 Key");
-        } else {
-            dialogueTrigger.TriggerDialogue("You Found " + key + " Keys");
+    private static string NameFromIndex(int BuildIndex)
+    {
+        string path = SceneUtility.GetScenePathByBuildIndex(BuildIndex);
+        int slash = path.LastIndexOf('/');
+        string name = path.Substring(slash + 1);
+        int dot = name.LastIndexOf('.');
+        return name.Substring(0, dot);
+    }
+    
+    private void InventoryPerScene(bool ips) {
+        if (ips) {
+            inventoryManager.ClearInventory();
         }
-    }
-    public void UseKey(int key) {
-        playerData.key -= key;
-        if (key == 1) {
-            dialogueTrigger.TriggerDialogue("You Used 1 Key");
-        } else {
-            dialogueTrigger.TriggerDialogue("You Used " + key +" Key");
-        }
-    }
-    private void UpdateKeyCounter() {
-        textMeshProUGUI.text = playerData.key.ToString();
-    }
-    private void Update() {
-        UpdateKeyCounter();
     }
 
     private void Start() {
-        dialogueTrigger = this.gameObject.GetComponent<DialogueTrigger>();
+        playerData.SceneName = NameFromIndex(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("Enter Scene: " + NameFromIndex(SceneManager.GetActiveScene().buildIndex));
+        inventoryManager = FindFirstObjectByType<InventoryManager>();
+        InventoryPerScene(playerData.InventoryPerScene);
     }
 }

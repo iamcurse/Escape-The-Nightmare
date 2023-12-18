@@ -1,44 +1,51 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
-using UnityEngine.PlayerLoop;
 
 public class InteractableObject : MonoBehaviour
 {
-    public GameObject parentObject;
-
     [ShowOnly] public bool isInRange;
     public bool limitTimeOfUse;
     public int timeOfUse = 1;
     public bool destroyWhenUsed;
+    public GameObject objectToDestroy;
     public AudioClip soundEffect;
     public KeyCode interactKey = KeyCode.Mouse0;
     public UnityEvent interactAction;
+    public UnityEvent UseItemAction;
 
     public Dialogue dialogue;
     private DialogueController dialogueController;
     [ShowOnly] public DialogueTrigger dialogueTrigger;
+    private PlayerManager playerManager;
+    private GameOver gameOver;
+
+    private bool trap;
+
+    public void SetActiveGameObject(bool active) {
+        if (active) {
+            this.GameObject().SetActive(true);
+        } else {
+            this.GameObject().SetActive(false);
+        }
+    }
 
     void Update() {
         if (isInRange) {
-            dialogueController = FindAnyObjectByType<DialogueController>();
             if (!dialogueController.animator.GetBool("isOpen")) {
                 if (Input.GetKeyDown(interactKey)) {
+                    if (soundEffect) {
+                        PlaySound();
+                    }
                     interactAction.Invoke();
                     if (limitTimeOfUse) {
                         timeOfUse--;
                     }
                     if (timeOfUse == 0) {
                         if (destroyWhenUsed) {
-                            if (parentObject) {
-                                Destroy(parentObject);
+                            if (objectToDestroy) {
+                                Destroy(objectToDestroy);
                             } else {
                                 Destroy(this.gameObject);
                             }
@@ -48,23 +55,30 @@ public class InteractableObject : MonoBehaviour
                     }
                 }
             }
+
+            if (trap) {
+                GameOver();
+            }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Player")) {
+    private void OnTriggerEnter2D(Collider2D collider2D) {
+        if (collider2D.gameObject.CompareTag("Player")) {
             isInRange = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Player")) {
+    private void OnTriggerExit2D(Collider2D collider2D) {
+        if (collider2D.gameObject.CompareTag("Player")) {
             isInRange = false;
         }
     }
 
     public void PlaySound() {
         AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+    }
+    public void PlaySound(AudioClip Sound) {
+        AudioSource.PlayClipAtPoint(Sound, transform.position);
     }
 
     public void TriggerTheDialogue(string line) {
@@ -95,7 +109,46 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
+    public void AddItem(Item item) {
+        InventoryManager.manager.Add(item);
+    }
+    public void UseItem(Item item) {
+        if (InventoryManager.manager.CheckItem(item)) {
+            InventoryManager.manager.Remove(item);
+            UseItemAction.Invoke();
+        } else {
+            TriggerTheDialogue("You do not have the required item");
+        }
+    }
+    public void UseItemNoRequireDialogue(Item item) {
+        if (InventoryManager.manager.CheckItem(item)) {
+            InventoryManager.manager.Remove(item);
+            UseItemAction.Invoke();
+        }
+    }
+
+    public void DestroyThisObject() {
+        Destroy(this.GameObject());
+    }
+    public void DestroyThisScript() {
+        Destroy(this);
+    }
+
+    public void TrapActive() {
+        trap = true;
+    }
+    public void TrapDeactive() {
+        trap = false;
+    }
+
+    public void GameOver() {
+        gameOver.GameOverTrigger(playerManager.playerData.SceneName);
+    }
+
     private void Start() {
+        playerManager = FindAnyObjectByType<PlayerManager>();
+        gameOver = FindAnyObjectByType<GameOver>(FindObjectsInactive.Include);
+        dialogueController = FindAnyObjectByType<DialogueController>();
         dialogueTrigger = FindAnyObjectByType<DialogueTrigger>();
     }
 }
