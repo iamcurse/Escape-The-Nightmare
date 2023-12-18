@@ -6,4 +6,5 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     [ShowOnly] public string SceneName;
+    public bool InventoryPerScene;
 }

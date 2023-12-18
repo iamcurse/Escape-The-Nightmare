@@ -23,6 +23,14 @@ public class InteractableObject : MonoBehaviour
 
     private bool trap;
 
+    public void SetActiveGameObject(bool active) {
+        if (active) {
+            this.GameObject().SetActive(true);
+        } else {
+            this.GameObject().SetActive(false);
+        }
+    }
+
     void Update() {
         if (isInRange) {
             if (!dialogueController.animator.GetBool("isOpen")) {
@@ -69,6 +77,9 @@ public class InteractableObject : MonoBehaviour
     public void PlaySound() {
         AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
+    public void PlaySound(AudioClip Sound) {
+        AudioSource.PlayClipAtPoint(Sound, transform.position);
+    }
 
     public void TriggerTheDialogue(string line) {
         dialogueTrigger.TriggerDialogue(line);
@@ -106,12 +117,21 @@ public class InteractableObject : MonoBehaviour
             InventoryManager.manager.Remove(item);
             UseItemAction.Invoke();
         } else {
-            TriggerTheDialogue("You do not have required item");
+            TriggerTheDialogue("You do not have the required item");
+        }
+    }
+    public void UseItemNoRequireDialogue(Item item) {
+        if (InventoryManager.manager.CheckItem(item)) {
+            InventoryManager.manager.Remove(item);
+            UseItemAction.Invoke();
         }
     }
 
     public void DestroyThisObject() {
         Destroy(this.GameObject());
+    }
+    public void DestroyThisScript() {
+        Destroy(this);
     }
 
     public void TrapActive() {

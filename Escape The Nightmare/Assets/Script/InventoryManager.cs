@@ -13,8 +13,17 @@ public class InventoryManager : MonoBehaviour
 
     private DialogueTrigger dialogueTrigger;
 
+    public void ClearInventory() {
+        inventory.Items.Clear();
+    }
+
     public void Add(Item item) {
-        dialogueTrigger.TriggerDialogue("You Found A " + item.itemName);
+        string vovel = item.itemName.Substring(0, 1);
+        if (vovel == "A" || vovel == "E" || vovel == "I" || vovel == "O" || vovel == "U"|| vovel == "e" || vovel == "i" || vovel == "o" || vovel == "u" || vovel == "u") {
+            dialogueTrigger.TriggerDialogue("You Found an " + item.itemName);
+        } else {
+            dialogueTrigger.TriggerDialogue("You Found a " + item.itemName);
+        }
         inventory.Items.Add(item);
     }
     public bool CheckItem(Item item) {
@@ -55,7 +64,7 @@ public class InventoryManager : MonoBehaviour
         }
         dialogueTrigger = FindFirstObjectByType<DialogueTrigger>();
     }
-    private void Update() {
+    private void FixedUpdate() {
         ListItems();
     }
 }

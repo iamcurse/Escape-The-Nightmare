@@ -248,6 +248,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 201fa46ab8bb76c4e8582ce4bbe177bf, type: 2}
+    - target: {fileID: 7966655160859304171, guid: ac212e7a3f9924d498864f1024e89057, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Item, Assembly-CSharp
       objectReference: {fileID: 0}
