@@ -1,4 +1,3 @@
-//@Arthor: 『Mr.Curse』
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
