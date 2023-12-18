@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+//@Arthor: 『Mr.Curse』
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;

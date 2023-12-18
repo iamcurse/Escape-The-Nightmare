@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+//@Arthor: 『Mr.Curse』
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewItem", menuName = "Item/ Create New Item")]

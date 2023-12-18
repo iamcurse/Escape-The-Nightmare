@@ -1,4 +1,4 @@
-using System.Collections;
+//@Arthor: 『Mr.Curse』
 using System.Collections.Generic;
 using UnityEngine;
 

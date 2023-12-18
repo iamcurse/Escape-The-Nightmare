@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+//@Arthor: 『Mr.Curse』
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.PlayerLoop;
 
 public class DoorChangeScene : MonoBehaviour
 {

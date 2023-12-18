@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+//@Arthor: 『Mr.Curse』
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour

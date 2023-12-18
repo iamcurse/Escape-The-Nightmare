@@ -1,3 +1,4 @@
+//@Arthor: 『Mr.Curse』
 using System;
 using TMPro;
 using UnityEngine;
