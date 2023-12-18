@@ -16,11 +16,7 @@ public class SceneChanger : MonoBehaviour
     }
 
     public void ChangeScene(string scene) {
-        if (sceneName != "") {
-            SceneManager.LoadScene(scene);
-        } else {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        SceneManager.LoadScene(scene);
     }
 
 }
