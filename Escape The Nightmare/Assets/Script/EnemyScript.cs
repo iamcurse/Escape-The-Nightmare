@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    Animator animator;
+    private Animator _animator;
     public float Health {
         set {
             health = value;
@@ -12,19 +10,18 @@ public class EnemyScript : MonoBehaviour
                 Defeated();
             }
         }
-        get {
-            return health;
-        }
+        get => health;
     }
 
     public float health = 1;
+    private static readonly int IsDefeated = Animator.StringToHash("Defeated");
 
     private void Start(){
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     public void Defeated(){
-        animator.SetTrigger("Defeated");
+        _animator.SetTrigger(IsDefeated);
     }
 
     public void DestroyEnemy() {

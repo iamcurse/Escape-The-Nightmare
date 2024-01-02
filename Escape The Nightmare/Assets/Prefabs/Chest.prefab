@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInRange: 0
-  limitTimeOfUse: 0
+  limitTimeOfUse: 1
   timeOfUse: 1
   destroyWhenUsed: 0
   objectToDestroy: {fileID: 0}
@@ -261,6 +261,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  UseItemAction:
+    m_PersistentCalls:
+      m_Calls: []
   dialogue:
     names: []
     lines: []

@@ -1,30 +1,29 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    private PlayerController playerController;
-    private InventoryManager inventoryManager;
-    private string sceneName;
+    private PlayerController _playerController;
+    private InventoryManager _inventoryManager;
+    private string _sceneName;
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void GameOverTrigger(String sceneName) {
         if (!this.GameObject().activeSelf) {
-            inventoryManager = FindFirstObjectByType<InventoryManager>();
-            playerController = FindAnyObjectByType<PlayerController>();
+            _inventoryManager = FindFirstObjectByType<InventoryManager>();
+            _playerController = FindAnyObjectByType<PlayerController>();
             this.GameObject().SetActive(true);
-            this.sceneName = sceneName;
-            inventoryManager.ClearInventory();
+            this._sceneName = sceneName;
+            _inventoryManager.ClearInventory();
             Debug.Log("Current Scene: " + sceneName);
-            playerController.LockMovement();
+            _playerController.LockMovement();
         }
     }
 
     public void Retry() {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(_sceneName);
     }
     public void MainMenu() {
         SceneManager.LoadScene("Menu");

@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Defeated
+    m_ConditionEvent: IsDefeated
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7330989072745365905}
@@ -65,7 +65,7 @@ AnimatorController:
   m_Name: AC_Slime
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Defeated
+  - m_Name: IsDefeated
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0

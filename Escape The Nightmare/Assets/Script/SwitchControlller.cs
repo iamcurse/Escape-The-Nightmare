@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,14 +5,14 @@ using UnityEngine.Events;
 public class SwitchController : MonoBehaviour
 {
     [ShowOnly] public bool isActive;
-    [ShowOnly] public int numOfUsed = 0;
+    [ShowOnly] public int numOfUsed;
     public bool isOneTimeUsed;
     public bool isActiveByDefault;
     public UnityEvent interactAction;
 
-    private InteractableObject interactableObject;
+    private InteractableObject _interactableObject;
 
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer _spriteRenderer;
     public void Switch() {
         if (isOneTimeUsed) {
             if (numOfUsed == 0) {
@@ -23,48 +20,39 @@ public class SwitchController : MonoBehaviour
                 if (!isActive) {
                     Active();
                 } else {
-                    Deactive();
+                    Deactivate();
                 }
             } else {
-                interactableObject.TriggerLineNumberDialogue(2);
+                _interactableObject.TriggerLineNumberDialogue(2);
             }
         } else {
             if (!isActive) {
                 Active();
             } else {
-                Deactive();
+                Deactivate();
             }
         }
     }
 
 private void Active() {
         isActive = true;
-        interactableObject.TriggerLineNumberDialogue(0);
-        if (spriteRenderer.flipX == false) {
-            spriteRenderer.flipX = true;
-        } else {
-            spriteRenderer.flipX = false;
-        }
+        _interactableObject.TriggerLineNumberDialogue(0);
+        _spriteRenderer.flipX ^= true;
         interactAction.Invoke();
     }
-private void Deactive() {
+private void Deactivate() {
         isActive = false;
-        interactableObject.TriggerLineNumberDialogue(1);
-        if (spriteRenderer.flipX == true) {
-            spriteRenderer.flipX = false;
-        } else {
-            spriteRenderer.flipX = true;
-        }
+        _interactableObject.TriggerLineNumberDialogue(1);
+        _spriteRenderer.flipX ^= true;
         interactAction.Invoke();
 }
 
     private void Start() {
-        interactableObject = this.GameObject().GetComponent<InteractableObject>();
-        spriteRenderer = this.GameObject().GetComponent<SpriteRenderer>();
-
         if (isActiveByDefault) {
             isActive = true;
-            spriteRenderer.flipX = true;
+            _spriteRenderer.flipX = true;
         }
+        _interactableObject = this.GameObject().GetComponent<InteractableObject>();
+        _spriteRenderer = this.GameObject().GetComponent<SpriteRenderer>();
     }
 }

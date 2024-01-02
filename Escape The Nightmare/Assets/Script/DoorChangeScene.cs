@@ -1,17 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.PlayerLoop;
 
 public class DoorChangeScene : MonoBehaviour
 {
     [ShowOnly] public bool isInRange;
     public UnityEvent interactAction;
 
-    void Update() {
+    private void Update() {
         if (isInRange) {
             interactAction.Invoke();
         }

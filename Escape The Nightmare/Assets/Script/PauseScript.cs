@@ -1,28 +1,29 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class PauseScript : MonoBehaviour
 {
-    private PlayerController playerController;
-    private InventoryManager inventoryManager;
-    private string sceneName;
-    public static bool GamePause = false;
-    public GameObject PauseUI;
+    private PlayerController _playerController;
+    private InventoryManager _inventoryManager;
+    private string _sceneName;
+    private static bool _gamePause;
+    [FormerlySerializedAs("PauseUI")] public GameObject pauseUI;
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (GamePause) {
-                Resume();
-            } else {
-                Pause();
-            }
+    private void Update()
+    {
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        if (_gamePause) {
+            Resume();
+        } else {
+            Pause();
         }
     }
 
     public void Retry() {
         Time.timeScale = 1f;
-        inventoryManager = FindFirstObjectByType<InventoryManager>();
-        inventoryManager.ClearInventory();
+        _inventoryManager = FindFirstObjectByType<InventoryManager>();
+        _inventoryManager.ClearInventory();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -32,14 +33,14 @@ public class PauseScript : MonoBehaviour
     }
 
     private void Resume() {
-        PauseUI.SetActive(false);
+        pauseUI.SetActive(false);
         Time.timeScale = 1f;
-        GamePause = false;
+        _gamePause = false;
     }
     private void Pause() {
-        PauseUI.SetActive(true);
+        pauseUI.SetActive(true);
         Time.timeScale = 0f;
-        GamePause = true;
+        _gamePause = true;
     }
     
 }

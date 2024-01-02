@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class PlayerData : ScriptableObject
 {
-    [ShowOnly] public string SceneName;
-    public bool InventoryPerScene;
+    [FormerlySerializedAs("SceneName")] [ShowOnly] public string sceneName;
+    [FormerlySerializedAs("InventoryPerScene")] public bool inventoryPerScene;
 }

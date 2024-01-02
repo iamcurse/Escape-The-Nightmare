@@ -2,6 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class InteractableObject : MonoBehaviour
 {
@@ -13,63 +14,53 @@ public class InteractableObject : MonoBehaviour
     public AudioClip soundEffect;
     public KeyCode interactKey = KeyCode.Mouse0;
     public UnityEvent interactAction;
-    public UnityEvent UseItemAction;
+    [FormerlySerializedAs("UseItemAction")] public UnityEvent useItemAction;
 
     public Dialogue dialogue;
-    private DialogueController dialogueController;
+    private DialogueController _dialogueController;
     [ShowOnly] public DialogueTrigger dialogueTrigger;
-    private PlayerManager playerManager;
-    private GameOver gameOver;
+    private PlayerManager _playerManager;
+    private GameOver _gameOver;
 
-    private bool trap;
+    private bool _trap;
+    private static readonly int IsOpen = Animator.StringToHash("isOpen");
 
-    public void SetActiveGameObject(bool active) {
-        if (active) {
-            this.GameObject().SetActive(true);
-        } else {
-            this.GameObject().SetActive(false);
-        }
-    }
-
-    void Update() {
-        if (isInRange) {
-            if (!dialogueController.animator.GetBool("isOpen")) {
-                if (Input.GetKeyDown(interactKey)) {
-                    if (soundEffect) {
-                        PlaySound();
-                    }
-                    interactAction.Invoke();
-                    if (limitTimeOfUse) {
-                        timeOfUse--;
-                    }
-                    if (timeOfUse == 0) {
-                        if (destroyWhenUsed) {
-                            if (objectToDestroy) {
-                                Destroy(objectToDestroy);
-                            } else {
-                                Destroy(this.gameObject);
-                            }
-                        } else {
-                            Destroy(this);
-                        }
+    private void Update()
+    {
+        if (!isInRange) return;
+        if (!_dialogueController.animator.GetBool(IsOpen)) {
+            if (Input.GetKeyDown(interactKey)) {
+                if (soundEffect) {
+                    PlaySound();
+                }
+                interactAction.Invoke();
+                if (limitTimeOfUse) {
+                    timeOfUse--;
+                }
+                if (timeOfUse == 0) {
+                    if (destroyWhenUsed)
+                    {
+                        Destroy(objectToDestroy ? objectToDestroy : this.gameObject);
+                    } else {
+                        Destroy(this);
                     }
                 }
             }
+        }
 
-            if (trap) {
-                GameOver();
-            }
+        if (_trap) {
+            GameOver();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider2D) {
-        if (collider2D.gameObject.CompareTag("Player")) {
+    private void OnTriggerEnter2D(Collider2D doorCollider) {
+        if (doorCollider.gameObject.CompareTag("Player")) {
             isInRange = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collider2D) {
-        if (collider2D.gameObject.CompareTag("Player")) {
+    private void OnTriggerExit2D(Collider2D doorCollider) {
+        if (doorCollider.gameObject.CompareTag("Player")) {
             isInRange = false;
         }
     }
@@ -77,8 +68,8 @@ public class InteractableObject : MonoBehaviour
     public void PlaySound() {
         AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
-    public void PlaySound(AudioClip Sound) {
-        AudioSource.PlayClipAtPoint(Sound, transform.position);
+    public void PlaySound(AudioClip sound) {
+        AudioSource.PlayClipAtPoint(sound, transform.position);
     }
 
     public void TriggerTheDialogue(string line) {
@@ -95,35 +86,34 @@ public class InteractableObject : MonoBehaviour
             string[] lines = range.Split('-');
                 
             if (lines.Length != 2 || Convert.ToInt32(lines[1]) > dialogue.lines.Length - 1) {
-                Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialoge Method's Input not correctly");
+                Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialogue Method's Input not correctly");
                 return;
             }
             
-            int l = Convert.ToInt32(lines[0]);
-            int m = Convert.ToInt32(lines[1]);
+            var l = Convert.ToInt32(lines[0]);
+            var m = Convert.ToInt32(lines[1]);
 
             dialogueTrigger.TriggerDialogue(l, m, dialogue);
         } catch (FormatException) {
-            Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialoge Method's Input not correctly");
-            return;
+            Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialogue Method's Input not correctly");
         }
     }
 
     public void AddItem(Item item) {
-        InventoryManager.manager.Add(item);
+        InventoryManager.Manager.Add(item);
     }
     public void UseItem(Item item) {
-        if (InventoryManager.manager.CheckItem(item)) {
-            InventoryManager.manager.Remove(item);
-            UseItemAction.Invoke();
+        if (InventoryManager.Manager.CheckItem(item)) {
+            InventoryManager.Manager.Remove(item);
+            useItemAction.Invoke();
         } else {
             TriggerTheDialogue("You do not have the required item");
         }
     }
     public void UseItemNoRequireDialogue(Item item) {
-        if (InventoryManager.manager.CheckItem(item)) {
-            InventoryManager.manager.Remove(item);
-            UseItemAction.Invoke();
+        if (InventoryManager.Manager.CheckItem(item)) {
+            InventoryManager.Manager.Remove(item);
+            useItemAction.Invoke();
         }
     }
 
@@ -135,20 +125,20 @@ public class InteractableObject : MonoBehaviour
     }
 
     public void TrapActive() {
-        trap = true;
+        _trap = true;
     }
-    public void TrapDeactive() {
-        trap = false;
+    public void TrapDeactivate() {
+        _trap = false;
     }
 
     public void GameOver() {
-        gameOver.GameOverTrigger(playerManager.playerData.SceneName);
+        _gameOver.GameOverTrigger(_playerManager.playerData.sceneName);
     }
 
     private void Start() {
-        playerManager = FindAnyObjectByType<PlayerManager>();
-        gameOver = FindAnyObjectByType<GameOver>(FindObjectsInactive.Include);
-        dialogueController = FindAnyObjectByType<DialogueController>();
+        _playerManager = FindAnyObjectByType<PlayerManager>();
+        _gameOver = FindAnyObjectByType<GameOver>(FindObjectsInactive.Include);
+        _dialogueController = FindAnyObjectByType<DialogueController>();
         dialogueTrigger = FindAnyObjectByType<DialogueTrigger>();
     }
 }

@@ -5,33 +5,29 @@ using UnityEngine.Events;
 public class ChestController : MonoBehaviour
 {
     public bool isOpen;
-    private int Key(int k) {
-        if (k < 0) {
-            return k * -1;
-        } else {
-            return k;
-        }
-    }
-
-    Animator animator;
+    private Animator _animator;
     public AudioClip soundEffect;
-    PlayerManager playerManager;
     public UnityEvent openChestAction;
-    InteractableObject interactableObject;
+    private InteractableObject _interactableObject;
 
     public Dialogue dialogue;
+    private static readonly int IsOpen = Animator.StringToHash("isOpen");
 
     public void OpenChest() {
         if (!isOpen){
-            interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
+            if (soundEffect)
+            {
+                AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+            }
+            _animator.SetBool(IsOpen, true);
+            _interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
             openChestAction.Invoke();
         }
     }
 
-    void Start()
+    private void Awake()
     {
-        playerManager = FindAnyObjectByType<PlayerManager>().GameObject().GetComponent<PlayerManager>();
-        interactableObject = this.GameObject().GetComponent<InteractableObject>();
-        animator = GetComponent<Animator>();
+        _interactableObject = this.GameObject().GetComponent<InteractableObject>();
+        _animator = GetComponent<Animator>();
     }
 }
