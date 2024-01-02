@@ -5,48 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6aa35f6-49db-485f-a3ea-6703addf6331" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Nightmare/.idea/dictionaries/Mr_Curse.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Nightmare/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Nightmare/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Nightmare/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Inventory Item.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Inventory Item.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Door/AC_Door.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Door/AC_Door.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Floor Trap/floor_trap.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Floor Trap/floor_trap.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Slime/AC_Slime.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Slime/AC_Slime.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Item Data/Inventory.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Item Data/Inventory.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Chest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Chest.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Item.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Item.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Object.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Object.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ChestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ChestController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Dialogue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Dialogue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogueController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DialogueController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogueTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DialogueTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DoorChangeScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DoorChangeScene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DoorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DoorController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/EnemyScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/EnemyScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GameOver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameOver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Escape The Nightmare/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Nightmare/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/InteractableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/InteractableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Inventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/InventoryManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Level Script/Level2Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Level Script/Level2Event.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PauseScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/PauseScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/PlayerData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/SceneChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SceneChanger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ShowOnlyAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ShowOnlyAttribute.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ShowOnlyDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ShowOnlyDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/SwitchControlller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SwitchControlller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/URP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/URP.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +47,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.spelling&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -156,6 +116,13 @@
       <workItem from="1704161441508" duration="978000" />
       <workItem from="1704163304522" duration="2756000" />
       <workItem from="1704166098610" duration="4806000" />
+      <workItem from="1704171096982" duration="174000" />
+      <workItem from="1704171310624" duration="40000" />
+      <workItem from="1704171372011" duration="553000" />
+      <workItem from="1704171951438" duration="87000" />
+      <workItem from="1704172051130" duration="150000" />
+      <workItem from="1704172224869" duration="46000" />
+      <workItem from="1704198220655" duration="116000" />
     </task>
     <servers />
   </component>

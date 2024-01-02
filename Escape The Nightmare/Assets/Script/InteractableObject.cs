@@ -86,7 +86,7 @@ public class InteractableObject : MonoBehaviour
             string[] lines = range.Split('-');
                 
             if (lines.Length != 2 || Convert.ToInt32(lines[1]) > dialogue.lines.Length - 1) {
-                Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialoge Method's Input not correctly");
+                Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialogue Method's Input not correctly");
                 return;
             }
             
