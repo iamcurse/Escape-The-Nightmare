@@ -1,91 +1,95 @@
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 1f;
-    public float Collider2DOffsetX = -0.0056f;
-    public float Collider2DOffsetY = -0.115f;
-    private float collisionOffset = 0.05f;
+    [FormerlySerializedAs("Collider2DOffsetX")] public float collider2DOffsetX = -0.0056f;
+    [FormerlySerializedAs("Collider2DOffsetY")] public float collider2DOffsetY = -0.115f;
+    [FormerlySerializedAs("_collisionOffset")] [SerializeField]private float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
     public Attack attack;
-    Vector2 movementInput;
-    Rigidbody2D rb;
+    private Vector2 _movementInput;
+    private Rigidbody2D _rb;
 
-    Animator animator;
-    SpriteRenderer spriteRenderer;
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
 
-    List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+    private readonly List<RaycastHit2D> _castCollisions = new List<RaycastHit2D>();
 
-    bool canMove = true;
+    private bool _canMove = true;
+    private static readonly int Attack1 = Animator.StringToHash("attack");
+    private static readonly int IsMoving = Animator.StringToHash("isMoving");
+    private BoxCollider2D _boxCollider2D;
+    private BoxCollider2D _boxCollider2D1;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        _boxCollider2D1 = this.GetComponent<BoxCollider2D>();
+        _boxCollider2D = this.GetComponent<BoxCollider2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate(){
-        if (canMove){
-            if (movementInput != Vector2.zero){
-                bool success = TryMove(movementInput);
+    private void FixedUpdate()
+    {
+        if (!_canMove) return;
+        if (_movementInput != Vector2.zero){
+            var success = TryMove(_movementInput);
+
+            if (!success){
+                success = TryMove(new Vector2(_movementInput.x, 0));
 
                 if (!success){
-                    success = TryMove(new Vector2(movementInput.x, 0));
-
-                    if (!success){
-                        success = TryMove(new Vector2(0, movementInput.y));
-                    }
+                    success = TryMove(new Vector2(0, _movementInput.y));
                 }
-
-                animator.SetBool("isMoving", success);
-            } else {
-                animator.SetBool("isMoving", false);
             }
 
-            if (movementInput.x < 0){
-                spriteRenderer.flipX = true;
-                this.GetComponent<BoxCollider2D>().offset = new Vector2(Collider2DOffsetX * -1, Collider2DOffsetY);
-            } else if (movementInput.x > 0){
-                spriteRenderer.flipX = false;
-                this.GetComponent<BoxCollider2D>().offset = new Vector2(Collider2DOffsetX, Collider2DOffsetY);
-            }
+            _animator.SetBool(IsMoving, success);
+        } else {
+            _animator.SetBool(IsMoving, false);
+        }
+
+        if (_movementInput.x < 0){
+            _spriteRenderer.flipX = true;
+            _boxCollider2D.offset = new Vector2(collider2DOffsetX * -1, collider2DOffsetY);
+        } else if (_movementInput.x > 0){
+            _spriteRenderer.flipX = false;
+            _boxCollider2D1.offset = new Vector2(collider2DOffsetX, collider2DOffsetY);
         }
     }
 
     private bool TryMove(Vector2 direction){
         if (direction != Vector2.zero){
-        int count = rb.Cast(direction, movementFilter, castCollisions, moveSpeed * Time.fixedDeltaTime + collisionOffset);
+            var count = _rb.Cast(direction, movementFilter, _castCollisions, moveSpeed * Time.fixedDeltaTime + collisionOffset);
 
-        if (count == 0){
-            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-            return true;
-        } else {
-            return false;
-        }
+            if (count == 0){
+                _rb.MovePosition(_rb.position + direction * (moveSpeed * Time.fixedDeltaTime));
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
     }
 
-    void OnMove(InputValue movementValue){
-        movementInput = movementValue.Get<Vector2>();
+    private void OnMove(InputValue movementValue){
+        _movementInput = movementValue.Get<Vector2>();
     }
-    
-    void OnFire(){
-        animator.SetTrigger("attack");
+
+    private void OnFire(){
+        _animator.SetTrigger(Attack1);
     }
 
     public void DoAttack(){
         LockMovement();
 
-        if (spriteRenderer.flipX == true){
+        if (_spriteRenderer.flipX){
             attack.AttackLeft();
         } else {
             attack.AttackRight();
@@ -98,10 +102,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public void LockMovement(){
-        canMove = false;
+        _canMove = false;
     }
 
     public void UnlockMovement(){
-        canMove = true;
+        _canMove = true;
     }
 }

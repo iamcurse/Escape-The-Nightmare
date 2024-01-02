@@ -1,38 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public Collider2D attackCollidor;
-    public float Damage = 3;
+    public Collider2D attackCollider;
+    public float damage = 3;
 
-    Vector2 rightAttackOffset;
+    private Vector2 _rightAttackOffset;
 
     private void Start(){
-        rightAttackOffset = transform.position;
+        _rightAttackOffset = transform.position;
     }
     public void AttackRight(){
-        attackCollidor.enabled = true;
-        transform.localPosition = rightAttackOffset;
+        attackCollider.enabled = true;
+        transform.localPosition = _rightAttackOffset;
     }
 
     public void AttackLeft(){
-        attackCollidor.enabled = true;
-        transform.localPosition = new Vector3(rightAttackOffset.x * -1, rightAttackOffset.y);
+        attackCollider.enabled = true;
+        transform.localPosition = new Vector3(_rightAttackOffset.x * -1, _rightAttackOffset.y);
     }
 
     public void StopAttack(){
-        attackCollidor.enabled = false;
+        attackCollider.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other){
-        if (other.tag == "Enemy"){
+        if (other.CompareTag("Enemy")){
             EnemyScript enemy = other.GetComponent<EnemyScript>();
 
             if (enemy != null) {
-                enemy.Health -= Damage;
+                enemy.Health -= damage;
             }
         }
     }

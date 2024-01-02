@@ -4,11 +4,11 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour
 {
     public PlayerData playerData;
-    private InventoryManager inventoryManager;
+    private InventoryManager _inventoryManager;
 
-    private static string NameFromIndex(int BuildIndex)
+    private static string NameFromIndex(int buildIndex)
     {
-        string path = SceneUtility.GetScenePathByBuildIndex(BuildIndex);
+        string path = SceneUtility.GetScenePathByBuildIndex(buildIndex);
         int slash = path.LastIndexOf('/');
         string name = path.Substring(slash + 1);
         int dot = name.LastIndexOf('.');
@@ -17,14 +17,14 @@ public class PlayerManager : MonoBehaviour
     
     private void InventoryPerScene(bool ips) {
         if (ips) {
-            inventoryManager.ClearInventory();
+            _inventoryManager.ClearInventory();
         }
     }
 
     private void Start() {
-        playerData.SceneName = NameFromIndex(SceneManager.GetActiveScene().buildIndex);
+        playerData.sceneName = NameFromIndex(SceneManager.GetActiveScene().buildIndex);
         Debug.Log("Enter Scene: " + NameFromIndex(SceneManager.GetActiveScene().buildIndex));
-        inventoryManager = FindFirstObjectByType<InventoryManager>();
-        InventoryPerScene(playerData.InventoryPerScene);
+        _inventoryManager = FindFirstObjectByType<InventoryManager>();
+        InventoryPerScene(playerData.inventoryPerScene);
     }
 }

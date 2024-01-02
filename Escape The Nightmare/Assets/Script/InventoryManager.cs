@@ -5,49 +5,50 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager manager;
+    public static InventoryManager Manager;
     public Inventory inventory;
 
-    public Transform ItemContent;
-    public GameObject InventoryItem;
+    public Transform itemContent;
+    public GameObject inventoryItem;
 
-    private DialogueTrigger dialogueTrigger;
+    private DialogueTrigger _dialogueTrigger;
 
     public void ClearInventory() {
-        inventory.Items.Clear();
+        inventory.items.Clear();
     }
 
     public void Add(Item item) {
-        string vovel = item.itemName.Substring(0, 1);
-        if (vovel == "A" || vovel == "E" || vovel == "I" || vovel == "O" || vovel == "U"|| vovel == "e" || vovel == "i" || vovel == "o" || vovel == "u" || vovel == "u") {
-            dialogueTrigger.TriggerDialogue("You Found an " + item.itemName);
+        string vowel = item.itemName.Substring(0, 1);
+        if (vowel == "A" || vowel == "E" || vowel == "I" || vowel == "O" || vowel == "U"|| vowel == "e" || vowel == "i" || vowel == "o" || vowel == "u" || vowel == "u") {
+            _dialogueTrigger.TriggerDialogue("You Found an " + item.itemName);
         } else {
-            dialogueTrigger.TriggerDialogue("You Found a " + item.itemName);
+            _dialogueTrigger.TriggerDialogue("You Found a " + item.itemName);
         }
-        inventory.Items.Add(item);
+        inventory.items.Add(item);
     }
     public bool CheckItem(Item item) {
-        if (inventory.Items.Contains(item)) {
+        if (inventory.items.Contains(item)) {
             return true;
         } else {
             return false;
         }
     }
     public void Remove(Item item) {
-        dialogueTrigger.TriggerDialogue("You Use A " + item.itemName);
-        inventory.Items.Remove(item);
+        _dialogueTrigger.TriggerDialogue("You Use A " + item.itemName);
+        inventory.items.Remove(item);
     }
 
-    public void ListItems() {
-        foreach (Transform item in ItemContent) {
+    // ReSharper disable Unity.PerformanceAnalysis
+    private void ListItems() {
+        foreach (Transform item in itemContent) {
             Destroy(item.gameObject);
         }
 
-        foreach (var item in inventory.Items) {
+        foreach (var item in inventory.items) {
             try {
-                GameObject gameObject = Instantiate(InventoryItem, ItemContent);
-                var itemName = gameObject.transform.Find("ItemName").GetComponent<TMP_Text>();
-                var itemIcon = gameObject.transform.Find("ItemIcon").GetComponent<Image>();
+                var itemGameObject = Instantiate(inventoryItem, itemContent);
+                var itemName = itemGameObject.transform.Find("ItemName").GetComponent<TMP_Text>();
+                var itemIcon = itemGameObject.transform.Find("ItemIcon").GetComponent<Image>();
 
                 itemName.text = item.itemName;
                 itemIcon.sprite = item.icon;
@@ -58,11 +59,11 @@ public class InventoryManager : MonoBehaviour
     }
 
     private void Awake(){
-        if (manager == null)
+        if (Manager == null)
         {
-            manager = this;
+            Manager = this;
         }
-        dialogueTrigger = FindFirstObjectByType<DialogueTrigger>();
+        _dialogueTrigger = FindFirstObjectByType<DialogueTrigger>();
     }
     private void FixedUpdate() {
         ListItems();

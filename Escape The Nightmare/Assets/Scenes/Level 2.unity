@@ -1786,17 +1786,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2b0d28d0760fe34f9dd03513feafc99, type: 3}
---- !u!114 &328449144 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4137780968766782198, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
-  m_PrefabInstance: {fileID: 1679889551}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c837080247ee248ae28ae53c92d95c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &340093701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61254,19 +61243,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
       propertyPath: dialogue.lines.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
       propertyPath: dialogue.names.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
       propertyPath: 'dialogue.lines.Array.data[0]'
-      value: '"Beware of the trap"'
+      value: '"Beware of the trap, it quite annoying"'
       objectReference: {fileID: 0}
     - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
       propertyPath: 'dialogue.lines.Array.data[1]'
-      value: '"I know it quite annoying"'
+      value: '"Beware of the trap, it quite annoying"'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -62427,6 +62416,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 31.927979
       objectReference: {fileID: 0}
+    - target: {fileID: 2990060861259990583, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
+      propertyPath: inventoryItem
+      value: 
+      objectReference: {fileID: 4955056311259584223, guid: b807beb922adf2a44a0f3348d9c70273, type: 3}
     - target: {fileID: 3001530171017471256, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
       propertyPath: ItemContent
       value: 
@@ -64002,21 +63995,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd60fd24198bd6f48ab8163a44283f65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bootlePuzzle:
+  bottlePuzzle:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 328449144}
-        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
-        m_MethodName: Switch
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &1935510599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1181612743041480136, guid: f2b0d28d0760fe34f9dd03513feafc99, type: 3}

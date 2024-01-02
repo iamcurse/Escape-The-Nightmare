@@ -1,151 +1,138 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
-    private Queue<string> lines;
-    private Queue<string> names;
+    private Queue<string> _lines;
+    private Queue<string> _names;
+    private bool _isRunning;
+    private static readonly int IsOpen = Animator.StringToHash("isOpen");
 
-    private bool isRunning;
-
-    private PlayerController playerController;
-
-    void Start() {
-        playerController = FindAnyObjectByType<PlayerController>();
-        lines = new Queue<string>();
-        names = new Queue<string>();
+    private void Start() {
+        _lines = new Queue<string>();
+        _names = new Queue<string>();
         
     }
 
     public void StartDialogue (Dialogue dialogue) {
-        if (!isRunning) {
-            animator.SetBool("isOpen", true);
+        if (!_isRunning) {
+            animator.SetBool(IsOpen, true);
 
-            names.Clear();
-            lines.Clear();
+            _names.Clear();
+            _lines.Clear();
 
-            foreach (string name in dialogue.names) {
-                names.Enqueue(name);
+            foreach (var nameLetter in dialogue.names) {
+                _names.Enqueue(nameLetter);
             }
-            foreach (string line in dialogue.lines) {
-                lines.Enqueue(line);
+            foreach (var line in dialogue.lines) {
+                _lines.Enqueue(line);
             }
-                DisplayNextLines();
+            DisplayNextLines();
         } else {
-            foreach (string name in dialogue.names) {
-                names.Enqueue(name);
+            foreach (var nameLetter in dialogue.names) {
+                _names.Enqueue(nameLetter);
             }
-            foreach (string line in dialogue.lines) {
-                lines.Enqueue(line);
+            foreach (var line in dialogue.lines) {
+                _lines.Enqueue(line);
             }
         }
     }
     public void StartDialogue (string line) {
-        if (!isRunning) {
-            animator.SetBool("isOpen", true);
+        if (!_isRunning) {
+            animator.SetBool(IsOpen, true);
 
-            names.Clear();
-            lines.Clear();
+            _names.Clear();
+            _lines.Clear();
 
-            names.Enqueue("");
-            lines.Enqueue(line);
+            _names.Enqueue("");
+            _lines.Enqueue(line);
             DisplayNextLines();
         } else {
-            names.Enqueue("");
-            lines.Enqueue(line);
+            _names.Enqueue("");
+            _lines.Enqueue(line);
         }
     }
-    public void StartDialogue (string line, string name) {
-        if (!isRunning) {
-            animator.SetBool("isOpen", true);
+    public void StartDialogue (string line, string nameDialogue) {
+        if (!_isRunning) {
+            animator.SetBool(IsOpen, true);
 
-            names.Clear();
-            lines.Clear();
+            _names.Clear();
+            _lines.Clear();
 
-            names.Enqueue(name);
-            lines.Enqueue(line);
+            _names.Enqueue(nameDialogue);
+            _lines.Enqueue(line);
             DisplayNextLines();
         } else {
-            names.Enqueue(name);
-            lines.Enqueue(line);
+            _names.Enqueue(nameDialogue);
+            _lines.Enqueue(line);
         }
     }
     public void StartDialogue (int l, Dialogue dialogue) {
-        if (!isRunning) {
-            animator.SetBool("isOpen", true);
+        if (!_isRunning) {
+            animator.SetBool(IsOpen, true);
             
-            names.Clear();
-            lines.Clear();
+            _names.Clear();
+            _lines.Clear();
 
-            names.Enqueue(dialogue.names[l]);
-            lines.Enqueue(dialogue.lines[l]);
+            _names.Enqueue(dialogue.names[l]);
+            _lines.Enqueue(dialogue.lines[l]);
 
             DisplayNextLines();
         } else {
-            names.Enqueue(dialogue.names[l]);
-            lines.Enqueue(dialogue.lines[l]);
+            _names.Enqueue(dialogue.names[l]);
+            _lines.Enqueue(dialogue.lines[l]);
         }
     }
 
     public void StartDialogue (int l, int m, Dialogue dialogue) {
-        if (!isRunning) {
-            animator.SetBool("isOpen", true);
+        if (!_isRunning) {
+            animator.SetBool(IsOpen, true);
 
-            names.Clear();
-            lines.Clear();
+            _names.Clear();
+            _lines.Clear();
 
             for (int i = l; i <= m; i++) {
-                names.Enqueue(dialogue.names[i]);
-                lines.Enqueue(dialogue.lines[i]);
+                _names.Enqueue(dialogue.names[i]);
+                _lines.Enqueue(dialogue.lines[i]);
             }
             DisplayNextLines();
         } else {
             for (int i = l; i <= m; i++) {
-                names.Enqueue(dialogue.names[i]);
-                lines.Enqueue(dialogue.lines[i]);
+                _names.Enqueue(dialogue.names[i]);
+                _lines.Enqueue(dialogue.lines[i]);
             }
         }
     }
 
     public void DisplayNextLines() {
-        if (lines.Count == 0) {
-            EndDialogue();
+        if (_lines.Count == 0) {
+            animator.SetBool(IsOpen, false);
+            _isRunning = false;
             return;
         }
-        string name = names.Dequeue();
-        string line = lines.Dequeue();
+        var nameDialogue = _names.Dequeue();
+        var line = _lines.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeLine(line, name));
+        StartCoroutine(TypeLine(line, nameDialogue));
     }
 
-    IEnumerator TypeLine (string line, string name) {
-        isRunning = true;
-        nameText.text = name;
+    private IEnumerator TypeLine (string line, string nameDialogue) {
+        _isRunning = true;
+        nameText.text = nameDialogue;
         dialogueText.text = "";
-        foreach (char c in line.ToCharArray()) {
+        foreach (var c in line) {
             dialogueText.text += c;
             yield return new WaitForSeconds(0.05f);
         }
     }
 
-    private void DisablePlayerMove() {
-        playerController.LockMovement();
-    }
-    private void EnablePlayerMove() {
-        
-        playerController.UnlockMovement();
-    }
-
-    public void EndDialogue() {
-        animator.SetBool("isOpen", false);
-        //EnablePlayerMove();
-        isRunning = false;
-    }
+    // private void EndDialogue() {
+    //     animator.SetBool(IsOpen, false);
+    //     _isRunning = false;
+    // }
 }
