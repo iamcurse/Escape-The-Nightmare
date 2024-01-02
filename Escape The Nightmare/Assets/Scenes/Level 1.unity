@@ -502,8 +502,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
       propertyPath: 'dialogue.lines.Array.data[1]'
-      value: '"The Key to open the door is lie among the place where the knowledge
-        once lie in"'
+      value: '"The key to open the door is lying among the place where the knowledge
+        once lies in."'
       objectReference: {fileID: 0}
     - target: {fileID: 3789084564315027982, guid: bf9b9e653cc1d8947abbded153a088ad, type: 3}
       propertyPath: 'dialogue.lines.Array.data[2]'
