@@ -15,9 +15,12 @@ public class ChestController : MonoBehaviour
 
     public void OpenChest() {
         if (!isOpen){
-            _interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
-            AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+            if (soundEffect)
+            {
+                AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+            }
             _animator.SetBool(IsOpen, true);
+            _interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
             openChestAction.Invoke();
         }
     }

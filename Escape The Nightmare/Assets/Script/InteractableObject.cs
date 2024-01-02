@@ -25,31 +25,31 @@ public class InteractableObject : MonoBehaviour
     private bool _trap;
     private static readonly int IsOpen = Animator.StringToHash("isOpen");
 
-    private void Update() {
-        if (isInRange) {
-            if (!_dialogueController.animator.GetBool(IsOpen)) {
-                if (Input.GetKeyDown(interactKey)) {
-                    if (soundEffect) {
-                        PlaySound();
-                    }
-                    interactAction.Invoke();
-                    if (limitTimeOfUse) {
-                        timeOfUse--;
-                    }
-                    if (timeOfUse == 0) {
-                        if (destroyWhenUsed)
-                        {
-                            Destroy(objectToDestroy ? objectToDestroy : this.gameObject);
-                        } else {
-                            Destroy(this);
-                        }
+    private void Update()
+    {
+        if (!isInRange) return;
+        if (!_dialogueController.animator.GetBool(IsOpen)) {
+            if (Input.GetKeyDown(interactKey)) {
+                if (soundEffect) {
+                    PlaySound();
+                }
+                interactAction.Invoke();
+                if (limitTimeOfUse) {
+                    timeOfUse--;
+                }
+                if (timeOfUse == 0) {
+                    if (destroyWhenUsed)
+                    {
+                        Destroy(objectToDestroy ? objectToDestroy : this.gameObject);
+                    } else {
+                        Destroy(this);
                     }
                 }
             }
+        }
 
-            if (_trap) {
-                GameOver();
-            }
+        if (_trap) {
+            GameOver();
         }
     }
 
@@ -90,8 +90,8 @@ public class InteractableObject : MonoBehaviour
                 return;
             }
             
-            int l = Convert.ToInt32(lines[0]);
-            int m = Convert.ToInt32(lines[1]);
+            var l = Convert.ToInt32(lines[0]);
+            var m = Convert.ToInt32(lines[1]);
 
             dialogueTrigger.TriggerDialogue(l, m, dialogue);
         } catch (FormatException) {

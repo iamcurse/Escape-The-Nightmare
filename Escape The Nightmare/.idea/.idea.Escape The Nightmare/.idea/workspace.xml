@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d6aa35f6-49db-485f-a3ea-6703addf6331" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Escape The Nightmare/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Nightmare/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Item Data/Inventory.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Item Data/Inventory.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ChestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ChestController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/InteractableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/InteractableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/SwitchControlller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SwitchControlller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +128,8 @@
       <workItem from="1704172051130" duration="150000" />
       <workItem from="1704172224869" duration="46000" />
       <workItem from="1704198220655" duration="116000" />
+      <workItem from="1704219719846" duration="666000" />
+      <workItem from="1704231896831" duration="982000" />
     </task>
     <servers />
   </component>

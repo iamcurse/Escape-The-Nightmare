@@ -42,6 +42,7 @@ private void Active() {
     }
 private void Deactivate() {
         isActive = false;
+        _interactableObject.TriggerLineNumberDialogue(1);
         _spriteRenderer.flipX ^= true;
         interactAction.Invoke();
 }
