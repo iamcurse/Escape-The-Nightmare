@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 1cdd296ccc151b4478db39a8caebc356
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8410816315461094666
+    second: underworld_load-extra-32x32_0
+  - first:
+      213: 2213638655845031982
+    second: underworld_load-extra-32x32_1
+  - first:
+      213: 7489399582341992928
+    second: underworld_load-extra-32x32_2
+  - first:
+      213: -7329546479776709210
+    second: underworld_load-extra-32x32_3
+  - first:
+      213: -4780323672541905458
+    second: underworld_load-extra-32x32_4
+  - first:
+      213: -12759850602922541
+    second: underworld_load-extra-32x32_5
+  - first:
+      213: 9076210505922646231
+    second: underworld_load-extra-32x32_6
+  - first:
+      213: -2987213758866433925
+    second: underworld_load-extra-32x32_7
+  - first:
+      213: 3866010477795515693
+    second: underworld_load-extra-32x32_8
+  - first:
+      213: -1603121868490433812
+    second: underworld_load-extra-32x32_9
+  - first:
+      213: -4651201052716760159
+    second: underworld_load-extra-32x32_10
+  - first:
+      213: -2770557603463004321
+    second: underworld_load-extra-32x32_11
+  - first:
+      213: 6838148443701321993
+    second: underworld_load-extra-32x32_12
+  - first:
+      213: 2295920810960640257
+    second: underworld_load-extra-32x32_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 7c8d182429f06434aa3a349eff0cb7c0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      underworld_load-extra-32x32_0: -8410816315461094666
+      underworld_load-extra-32x32_1: 2213638655845031982
+      underworld_load-extra-32x32_10: -4651201052716760159
+      underworld_load-extra-32x32_11: -2770557603463004321
+      underworld_load-extra-32x32_12: 6838148443701321993
+      underworld_load-extra-32x32_13: 2295920810960640257
+      underworld_load-extra-32x32_2: 7489399582341992928
+      underworld_load-extra-32x32_3: -7329546479776709210
+      underworld_load-extra-32x32_4: -4780323672541905458
+      underworld_load-extra-32x32_5: -12759850602922541
+      underworld_load-extra-32x32_6: 9076210505922646231
+      underworld_load-extra-32x32_7: -2987213758866433925
+      underworld_load-extra-32x32_8: 3866010477795515693
+      underworld_load-extra-32x32_9: -1603121868490433812
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
