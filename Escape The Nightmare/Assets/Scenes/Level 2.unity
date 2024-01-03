@@ -60010,9 +60010,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6433974950126834841, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 48592646}
-    - targetCorrespondingSourceObject: {fileID: 6433974950126834841, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1925429475}
     - targetCorrespondingSourceObject: {fileID: 8614379215200217181, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8175974}
@@ -63848,7 +63845,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1366527320}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2719338755874035864, guid: b05a31e869d5fe34ebc7173737ccff9c, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.size
@@ -63916,15 +63913,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7657120605064467833, guid: b05a31e869d5fe34ebc7173737ccff9c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7657120605064467833, guid: b05a31e869d5fe34ebc7173737ccff9c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7657120605064467833, guid: b05a31e869d5fe34ebc7173737ccff9c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7657120605064467833, guid: b05a31e869d5fe34ebc7173737ccff9c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -63950,11 +63947,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1925429477}
   m_SourcePrefab: {fileID: 100100000, guid: b05a31e869d5fe34ebc7173737ccff9c, type: 3}
---- !u!4 &1925429475 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7657120605064467833, guid: b05a31e869d5fe34ebc7173737ccff9c, type: 3}
-  m_PrefabInstance: {fileID: 1925429474}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1925429476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7822017364232847288, guid: b05a31e869d5fe34ebc7173737ccff9c, type: 3}
@@ -63972,7 +63964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a13b1562bc0c0c41abb800c1c9d0c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Level 3
 --- !u!4 &1926908962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1986223019405390953, guid: 37ca70e7a8089984da29ef79e3a82eb2, type: 3}
@@ -64617,3 +64609,4 @@ SceneRoots:
   - {fileID: 534682090}
   - {fileID: 321260848}
   - {fileID: 785246654}
+  - {fileID: 1925429474}
