@@ -5,134 +5,110 @@ using UnityEngine;
 
 public class DialogueController : MonoBehaviour
 {
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI dialogueText;
     public Animator animator;
+    [SerializeField] private GameObject continueButton;
     private Queue<string> _lines;
     private Queue<string> _names;
     private bool _isRunning;
     private static readonly int IsOpen = Animator.StringToHash("isOpen");
+    private const string HtmlAlpha = "<color=#00000000>";
 
     private void Start() {
         _lines = new Queue<string>();
         _names = new Queue<string>();
-        
     }
 
     public void StartDialogue (Dialogue dialogue) {
-        if (!_isRunning) {
-            animator.SetBool(IsOpen, true);
-
-            _names.Clear();
-            _lines.Clear();
-
-            foreach (var nameLetter in dialogue.names) {
-                _names.Enqueue(nameLetter);
-            }
-            foreach (var line in dialogue.lines) {
-                _lines.Enqueue(line);
-            }
-            DisplayNextLines();
-        } else {
-            foreach (var nameLetter in dialogue.names) {
-                _names.Enqueue(nameLetter);
-            }
-            foreach (var line in dialogue.lines) {
-                _lines.Enqueue(line);
-            }
-        }
-    }
-    public void StartDialogue (string line) {
-        if (!_isRunning) {
-            animator.SetBool(IsOpen, true);
-
-            _names.Clear();
-            _lines.Clear();
-
-            _names.Enqueue("");
-            _lines.Enqueue(line);
-            DisplayNextLines();
-        } else {
-            _names.Enqueue("");
-            _lines.Enqueue(line);
-        }
-    }
-    public void StartDialogue (string line, string nameDialogue) {
-        if (!_isRunning) {
-            animator.SetBool(IsOpen, true);
-
-            _names.Clear();
-            _lines.Clear();
-
+        foreach (var nameDialogue in dialogue.names) {
             _names.Enqueue(nameDialogue);
-            _lines.Enqueue(line);
-            DisplayNextLines();
-        } else {
-            _names.Enqueue(nameDialogue);
-            _lines.Enqueue(line);
         }
+        foreach (var lineDialogue in dialogue.lines) {
+            _lines.Enqueue(lineDialogue);
+        }
+        
+        if (!_isRunning)
+            DisplayNextLines();
+    }
+    public void StartDialogue (string lineDialogue) {
+        _names.Enqueue("");
+        _lines.Enqueue(lineDialogue);
+        
+        if (!_isRunning)
+            DisplayNextLines();
+    }
+    public void StartDialogue (string lineDialogue, string nameDialogue) {
+        _names.Enqueue(nameDialogue);
+        _lines.Enqueue(lineDialogue);
+        
+        if (!_isRunning)
+            DisplayNextLines();
     }
     public void StartDialogue (int l, Dialogue dialogue) {
-        if (!_isRunning) {
-            animator.SetBool(IsOpen, true);
-            
-            _names.Clear();
-            _lines.Clear();
-
-            _names.Enqueue(dialogue.names[l]);
-            _lines.Enqueue(dialogue.lines[l]);
-
+        _names.Enqueue(dialogue.names[l]);
+        _lines.Enqueue(dialogue.lines[l]);
+        
+        if (!_isRunning)
             DisplayNextLines();
-        } else {
-            _names.Enqueue(dialogue.names[l]);
-            _lines.Enqueue(dialogue.lines[l]);
-        }
     }
 
     public void StartDialogue (int l, int m, Dialogue dialogue) {
-        if (!_isRunning) {
-            animator.SetBool(IsOpen, true);
-
-            _names.Clear();
-            _lines.Clear();
-
-            for (int i = l; i <= m; i++) {
-                _names.Enqueue(dialogue.names[i]);
-                _lines.Enqueue(dialogue.lines[i]);
-            }
-            DisplayNextLines();
-        } else {
-            for (int i = l; i <= m; i++) {
-                _names.Enqueue(dialogue.names[i]);
-                _lines.Enqueue(dialogue.lines[i]);
-            }
+        for (var i = l; i <= m; i++) {
+            _names.Enqueue(dialogue.names[i]);
+            _lines.Enqueue(dialogue.lines[i]);
         }
+
+        if (!_isRunning)
+            DisplayNextLines();
     }
 
-    public void DisplayNextLines() {
-        if (_lines.Count == 0) {
-            animator.SetBool(IsOpen, false);
-            _isRunning = false;
+    public void DisplayNextLines()
+    {
+        _isRunning = true;
+        if (!animator.GetBool(IsOpen))
+        {
+            animator.SetBool(IsOpen, true);
+            continueButton.SetActive(true);
+        }
+        
+        if (_lines.Count == 0)
+        {
+            EndDialogue();
             return;
         }
+        
         var nameDialogue = _names.Dequeue();
-        var line = _lines.Dequeue();
+        var lineDialogue = _lines.Dequeue();
+        
         StopAllCoroutines();
-        StartCoroutine(TypeLine(line, nameDialogue));
+        StartCoroutine(TypeLine(lineDialogue, nameDialogue));
     }
 
-    private IEnumerator TypeLine (string line, string nameDialogue) {
-        _isRunning = true;
+    private IEnumerator TypeLine (string lineDialogue, string nameDialogue) {
         nameText.text = nameDialogue;
         dialogueText.text = "";
-        foreach (var c in line) {
-            dialogueText.text += c;
+        
+        string originalText = lineDialogue;
+        int index = 0;
+
+        foreach (var unused in lineDialogue.ToCharArray())
+        {
+            index++;
+            dialogueText.text = originalText;
+            
+            var displayText = dialogueText.text.Insert(index, HtmlAlpha);
+            dialogueText.text = displayText;
             yield return new WaitForSeconds(0.05f);
         }
     }
 
-    // private void EndDialogue() {
-    //     animator.SetBool(IsOpen, false);
-    //     _isRunning = false;
-    // }
+    private void EndDialogue() {
+        _names.Clear();
+        _lines.Clear();
+
+        _isRunning = false;
+        animator.SetBool(IsOpen, false);
+        continueButton.SetActive(false);
+    }
 }

@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d6aa35f6-49db-485f-a3ea-6703addf6331" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Escape The Nightmare/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Nightmare/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Item Data/Inventory.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Item Data/Inventory.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ChestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ChestController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/InteractableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/InteractableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/SwitchControlller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SwitchControlller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Object.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Object.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogueController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DialogueController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/DoorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DoorController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +51,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.qodana&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -63,6 +62,16 @@
     ]
   }
 }</component>
+  <component name="QodanaCIConfigService">
+    <option name="ciType" value="GITHUB" />
+    <option name="path" value="$PROJECT_DIR$/.github/workflows/qodana_code_quality.yml" />
+  </component>
+  <component name="QodanaCloudProjectLink">
+    <option name="linkedProjectId" value="3wk91" />
+    <option name="linkedProjectName" value="Escape-The-Nightmare" />
+    <option name="organizationId" value="p2a4W" />
+    <option name="userId" value="Abjn4" />
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../New folder\Escape The Nightmare.exe" />
@@ -130,6 +139,8 @@
       <workItem from="1704198220655" duration="116000" />
       <workItem from="1704219719846" duration="666000" />
       <workItem from="1704231896831" duration="982000" />
+      <workItem from="1704257254745" duration="2112000" />
+      <workItem from="1704296862962" duration="2253000" />
     </task>
     <servers />
   </component>
@@ -141,5 +152,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
