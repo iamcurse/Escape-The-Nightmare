@@ -24,34 +24,33 @@ public class DoorController : MonoBehaviour
     private SpriteRenderer _spriteRenderer1;
     private static readonly int IsOpen = Animator.StringToHash("isOpen");
 
-    public void OpenDoorInteract() {
-        if (!isOpen)
+    public void OpenDoorInteract()
+    {
+        if (isOpen) return;
+        switch (needKey)
         {
-            switch (needKey)
+            case true when !needSwitch:
             {
-                case true when !needSwitch:
-                {
-                    if (InventoryManager.Manager.CheckItem(key)) {
-                        _interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
-                        InventoryManager.Manager.Remove(key);
-                        OpenDoor();
-                    } else {
-                        _interactableObject.dialogueTrigger.TriggerDialogue(1, dialogue);
-                    }
-
-                    break;
-                }
-                case false when needSwitch:
-                    _interactableObject.dialogueTrigger.TriggerDialogue(1, 2, dialogue);
-                    break;
-                case false when !needSwitch:
+                if (InventoryManager.Manager.CheckItem(key)) {
+                    _interactableObject.dialogueTrigger.TriggerDialogue(0, dialogue);
+                    InventoryManager.Manager.Remove(key);
                     OpenDoor();
-                    _interactableObject.dialogueTrigger.TriggerDialogue(3, dialogue);
-                    break;
-                case true when needSwitch:
-                    Debug.LogWarning("Door: \"" + this.GameObject().name + "\" needKey and needSwitch cannot be true at the same time.");
-                    break;
+                } else {
+                    _interactableObject.dialogueTrigger.TriggerDialogue(1, dialogue);
+                }
+
+                break;
             }
+            case false when needSwitch:
+                _interactableObject.dialogueTrigger.TriggerDialogue(1, 2, dialogue);
+                break;
+            case false when !needSwitch:
+                OpenDoor();
+                _interactableObject.dialogueTrigger.TriggerDialogue(3, dialogue);
+                break;
+            case true when needSwitch:
+                Debug.LogWarning("Door: \"" + this.GameObject().name + "\" needKey and needSwitch cannot be true at the same time.");
+                break;
         }
     }
 
