@@ -26,23 +26,24 @@ public class DialogueController : MonoBehaviour
             _names.Clear();
             _lines.Clear();
 
-            foreach (var nameLetter in dialogue.names) {
-                _names.Enqueue(nameLetter);
+            foreach (var nameDialogue in dialogue.names) {
+                _names.Enqueue(nameDialogue);
             }
-            foreach (var line in dialogue.lines) {
-                _lines.Enqueue(line);
+            foreach (var lineDialogue in dialogue.lines) {
+                _lines.Enqueue(lineDialogue);
             }
+            
             DisplayNextLines();
         } else {
-            foreach (var nameLetter in dialogue.names) {
-                _names.Enqueue(nameLetter);
+            foreach (var nameDialogue in dialogue.names) {
+                _names.Enqueue(nameDialogue);
             }
-            foreach (var line in dialogue.lines) {
-                _lines.Enqueue(line);
+            foreach (var lineDialogue in dialogue.lines) {
+                _lines.Enqueue(lineDialogue);
             }
         }
     }
-    public void StartDialogue (string line) {
+    public void StartDialogue (string lineDialogue) {
         if (!_isRunning) {
             animator.SetBool(IsOpen, true);
 
@@ -50,14 +51,15 @@ public class DialogueController : MonoBehaviour
             _lines.Clear();
 
             _names.Enqueue("");
-            _lines.Enqueue(line);
+            _lines.Enqueue(lineDialogue);
+            
             DisplayNextLines();
         } else {
             _names.Enqueue("");
-            _lines.Enqueue(line);
+            _lines.Enqueue(lineDialogue);
         }
     }
-    public void StartDialogue (string line, string nameDialogue) {
+    public void StartDialogue (string lineDialogue, string nameDialogue) {
         if (!_isRunning) {
             animator.SetBool(IsOpen, true);
 
@@ -65,11 +67,12 @@ public class DialogueController : MonoBehaviour
             _lines.Clear();
 
             _names.Enqueue(nameDialogue);
-            _lines.Enqueue(line);
+            _lines.Enqueue(lineDialogue);
+            
             DisplayNextLines();
         } else {
             _names.Enqueue(nameDialogue);
-            _lines.Enqueue(line);
+            _lines.Enqueue(lineDialogue);
         }
     }
     public void StartDialogue (int l, Dialogue dialogue) {
@@ -96,13 +99,13 @@ public class DialogueController : MonoBehaviour
             _names.Clear();
             _lines.Clear();
 
-            for (int i = l; i <= m; i++) {
+            for (var i = l; i <= m; i++) {
                 _names.Enqueue(dialogue.names[i]);
                 _lines.Enqueue(dialogue.lines[i]);
             }
             DisplayNextLines();
         } else {
-            for (int i = l; i <= m; i++) {
+            for (var i = l; i <= m; i++) {
                 _names.Enqueue(dialogue.names[i]);
                 _lines.Enqueue(dialogue.lines[i]);
             }
@@ -110,29 +113,31 @@ public class DialogueController : MonoBehaviour
     }
 
     public void DisplayNextLines() {
-        if (_lines.Count == 0) {
-            animator.SetBool(IsOpen, false);
-            _isRunning = false;
+        if (_lines.Count == 0)
+        {
+            EndDialogue();
             return;
         }
+        
         var nameDialogue = _names.Dequeue();
-        var line = _lines.Dequeue();
+        var lineDialogue = _lines.Dequeue();
+        
         StopAllCoroutines();
-        StartCoroutine(TypeLine(line, nameDialogue));
+        StartCoroutine(TypeLine(lineDialogue, nameDialogue));
     }
 
-    private IEnumerator TypeLine (string line, string nameDialogue) {
+    private IEnumerator TypeLine (string lineDialogue, string nameDialogue) {
         _isRunning = true;
         nameText.text = nameDialogue;
         dialogueText.text = "";
-        foreach (var c in line) {
+        foreach (var c in lineDialogue) {
             dialogueText.text += c;
             yield return new WaitForSeconds(0.05f);
         }
     }
 
-    // private void EndDialogue() {
-    //     animator.SetBool(IsOpen, false);
-    //     _isRunning = false;
-    // }
+    private void EndDialogue() {
+        animator.SetBool(IsOpen, false);
+        _isRunning = false;
+    }
 }
