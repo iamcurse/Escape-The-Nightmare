@@ -6837,6 +6837,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1181612743041480136, guid: f2b0d28d0760fe34f9dd03513feafc99, type: 3}
   m_PrefabInstance: {fileID: 46519517}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1633219034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4137780968766782198, guid: aaaf862bd0bfe2742bb7606dbe3d8479, type: 3}
+  m_PrefabInstance: {fileID: 1679889551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c837080247ee248ae28ae53c92d95c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1639191353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46655,15 +46666,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4052916b46cf0df41b34cc9f82eb7220, type: 2}
     - target: {fileID: 4724366263488887032, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.12324424
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4724366263488887032, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.64494693
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4724366263488887032, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.718103
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4724366263488887032, guid: 00ca95dad6ea2004489acdbf3bff0dbb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -61731,15 +61742,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 922580367106193263, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.12324424
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 922580367106193263, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.64494693
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 922580367106193263, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.718103
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 922580367106193263, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63785,6 +63796,14 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8746668845942990450, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746668845942990450, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8920547607719280376, guid: 6024b719dce6b4b42af20fd59eee336b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 31.927979
@@ -63881,7 +63900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: b05a31e869d5fe34ebc7173737ccff9c, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Menu
+      value: Level 3
       objectReference: {fileID: 0}
     - target: {fileID: 2719338755874035864, guid: b05a31e869d5fe34ebc7173737ccff9c, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -63989,7 +64008,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottlePuzzle:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1633219034}
+        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
+        m_MethodName: OpenDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1935510599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1181612743041480136, guid: f2b0d28d0760fe34f9dd03513feafc99, type: 3}
