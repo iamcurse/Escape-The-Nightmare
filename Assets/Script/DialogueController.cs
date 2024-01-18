@@ -12,7 +12,9 @@ public class DialogueController : MonoBehaviour
     private Queue<string> _lines;
     private Queue<string> _names;
     private bool _isRunning;
+    private bool _isTyping;
     private static readonly int IsOpen = Animator.StringToHash("isOpen");
+    private string _currentTexT;
     private const string HtmlAlpha = "<color=#00000000>";
 
     private void Start() {
@@ -65,42 +67,52 @@ public class DialogueController : MonoBehaviour
 
     public void DisplayNextLines()
     {
-        _isRunning = true;
-        if (!animator.GetBool(IsOpen))
+        if (_isTyping == false)
         {
-            animator.SetBool(IsOpen, true);
-            continueButton.SetActive(true);
-        }
-        
-        if (_lines.Count == 0)
+            _isRunning = true;
+            if (!animator.GetBool(IsOpen))
+            {
+                animator.SetBool(IsOpen, true);
+                continueButton.SetActive(true);
+            }
+
+            if (_lines.Count == 0)
+            {
+                EndDialogue();
+                return;
+            }
+
+            var nameDialogue = _names.Dequeue();
+            var lineDialogue = _lines.Dequeue();
+
+            StopAllCoroutines();
+            StartCoroutine(TypeLine(lineDialogue, nameDialogue));
+        } else
         {
-            EndDialogue();
-            return;
+            StopAllCoroutines();
+            _isTyping = false;
+            dialogueText.text = _currentTexT;
         }
-        
-        var nameDialogue = _names.Dequeue();
-        var lineDialogue = _lines.Dequeue();
-        
-        StopAllCoroutines();
-        StartCoroutine(TypeLine(lineDialogue, nameDialogue));
     }
 
     private IEnumerator TypeLine (string lineDialogue, string nameDialogue) {
+        _isTyping = true;
         nameText.text = nameDialogue;
         dialogueText.text = "";
         
-        string originalText = lineDialogue;
+        _currentTexT = lineDialogue;
         int index = 0;
 
         foreach (var unused in lineDialogue.ToCharArray())
         {
             index++;
-            dialogueText.text = originalText;
+            dialogueText.text = _currentTexT;
             
             var displayText = dialogueText.text.Insert(index, HtmlAlpha);
             dialogueText.text = displayText;
             yield return new WaitForSeconds(0.05f);
         }
+        _isTyping = false;
     }
 
     private void EndDialogue() {

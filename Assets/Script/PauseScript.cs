@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 public class PauseScript : MonoBehaviour
 {
@@ -8,7 +7,7 @@ public class PauseScript : MonoBehaviour
     private InventoryManager _inventoryManager;
     private string _sceneName;
     private static bool _gamePause;
-    [FormerlySerializedAs("PauseUI")] public GameObject pauseUI;
+    public GameObject pauseUI;
 
     private void Update()
     {

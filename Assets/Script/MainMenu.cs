@@ -16,10 +16,10 @@ public class MainMenu : MonoBehaviour
 
     private static string NameFromIndex(int buildIndex)
     {
-    string path = SceneUtility.GetScenePathByBuildIndex(buildIndex);
-    int slash = path.LastIndexOf('/');
-    string name = path.Substring(slash + 1);
-    int dot = name.LastIndexOf('.');
+    var path = SceneUtility.GetScenePathByBuildIndex(buildIndex);
+    var slash = path.LastIndexOf('/');
+    var name = path.Substring(slash + 1);
+    var dot = name.LastIndexOf('.');
     return name.Substring(0, dot);
     }
 

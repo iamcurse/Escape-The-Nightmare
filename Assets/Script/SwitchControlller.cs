@@ -4,8 +4,8 @@ using UnityEngine.Events;
 
 public class SwitchController : MonoBehaviour
 {
-    [ShowOnly] public bool isActive;
-    [ShowOnly] public int numOfUsed;
+    [ShowOnly][SerializeField] private bool isActive;
+    [ShowOnly][SerializeField] private int numOfUsed;
     public bool isOneTimeUsed;
     public bool isActiveByDefault;
     public UnityEvent interactAction;

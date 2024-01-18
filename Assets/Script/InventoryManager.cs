@@ -18,7 +18,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void Add(Item item) {
-        string vowel = item.itemName.Substring(0, 1);
+        var vowel = item.itemName.Substring(0, 1);
         if (vowel == "A" || vowel == "E" || vowel == "I" || vowel == "O" || vowel == "U"|| vowel == "e" || vowel == "i" || vowel == "o" || vowel == "u" || vowel == "u") {
             _dialogueTrigger.TriggerDialogue("You Found an " + item.itemName);
         } else {
@@ -26,12 +26,9 @@ public class InventoryManager : MonoBehaviour
         }
         inventory.items.Add(item);
     }
-    public bool CheckItem(Item item) {
-        if (inventory.items.Contains(item)) {
-            return true;
-        } else {
-            return false;
-        }
+    public bool CheckItem(Item item)
+    {
+        return inventory.items.Contains(item);
     }
     public void Remove(Item item) {
         _dialogueTrigger.TriggerDialogue("You Use A " + item.itemName);

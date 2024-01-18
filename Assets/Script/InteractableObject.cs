@@ -1,12 +1,10 @@
-using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class InteractableObject : MonoBehaviour
 {
-    [ShowOnly] public bool isInRange;
+    [ShowOnly][SerializeField] private bool isInRange;
     public bool limitTimeOfUse;
     public int timeOfUse = 1;
     public bool destroyWhenUsed;
@@ -14,11 +12,11 @@ public class InteractableObject : MonoBehaviour
     public AudioClip soundEffect;
     public KeyCode interactKey = KeyCode.Mouse0;
     public UnityEvent interactAction;
-    [FormerlySerializedAs("UseItemAction")] public UnityEvent useItemAction;
+    public UnityEvent useItemAction;
 
-    public Dialogue dialogue;
+    [SerializeField] private Dialogue dialogue;
     private DialogueController _dialogueController;
-    [ShowOnly] public DialogueTrigger dialogueTrigger;
+    [HideInInspector] public DialogueTrigger dialogueTrigger;
     private PlayerManager _playerManager;
     private GameOver _gameOver;
 
@@ -40,7 +38,7 @@ public class InteractableObject : MonoBehaviour
                 if (timeOfUse == 0) {
                     if (destroyWhenUsed)
                     {
-                        Destroy(objectToDestroy ? objectToDestroy : this.gameObject);
+                        Destroy(objectToDestroy ? objectToDestroy : gameObject);
                     } else {
                         Destroy(this);
                     }
@@ -81,23 +79,23 @@ public class InteractableObject : MonoBehaviour
     public void TriggerLineNumberDialogue(int l) {
         dialogueTrigger.TriggerDialogue(l, dialogue);
     }
-    public void TriggerDialogueRange(string range) {
-        try {
-            string[] lines = range.Split('-');
-                
-            if (lines.Length != 2 || Convert.ToInt32(lines[1]) > dialogue.lines.Length - 1) {
-                Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialogue Method's Input not correctly");
-                return;
-            }
-            
-            var l = Convert.ToInt32(lines[0]);
-            var m = Convert.ToInt32(lines[1]);
-
-            dialogueTrigger.TriggerDialogue(l, m, dialogue);
-        } catch (FormatException) {
-            Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialogue Method's Input not correctly");
-        }
-    }
+//    public void TriggerDialogueRange(string range) {
+//        try {
+//            string[] lines = range.Split('-');
+//
+//            if (lines.Length != 2 || Convert.ToInt32(lines[1]) > dialogue.lines.Length - 1) {
+//                Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialogue Method's Input not correctly");
+//                return;
+//            }
+//
+//            var l = Convert.ToInt32(lines[0]);
+//            var m = Convert.ToInt32(lines[1]);
+//
+//            dialogueTrigger.TriggerDialogue(l, m, dialogue);
+//        } catch (FormatException) {
+//            Debug.LogWarning(this.gameObject.name + ": TriggerTheRangeDialogue Method's Input not correctly");
+//        }
+//    }
 
     public void AddItem(Item item) {
         InventoryManager.Manager.Add(item);

@@ -4,11 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
+    [ShowOnly][SerializeField] private bool isOpen;
     public bool isOpenByDefault;
     public bool needKey = true;
     public Item key;
     public bool needSwitch;
-    [ShowOnly] public bool isOpen;
     public bool isChangeScene;
     public string sceneName;
     public AudioClip doorOpenSound;

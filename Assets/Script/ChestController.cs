@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class ChestController : MonoBehaviour
 {
-    public bool isOpen;
+    [ShowOnly][SerializeField] private bool isOpen;
     private Animator _animator;
     public AudioClip soundEffect;
     public UnityEvent openChestAction;

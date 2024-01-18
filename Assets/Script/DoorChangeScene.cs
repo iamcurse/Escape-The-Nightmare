@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class DoorChangeScene : MonoBehaviour
 {
-    [ShowOnly] public bool isInRange;
+    [ShowOnly][SerializeField] private bool isInRange;
     public UnityEvent interactAction;
 
     private void Update() {
