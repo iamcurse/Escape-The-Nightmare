@@ -15,6 +15,7 @@ public class InventoryManager : MonoBehaviour
 
     public void ClearInventory() {
         inventory.items.Clear();
+        Debug.Log("Inventory Cleared");
     }
 
     public void Add(Item item) {
