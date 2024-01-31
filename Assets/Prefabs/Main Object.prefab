@@ -3177,6 +3177,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -486
       objectReference: {fileID: 0}
+    - target: {fileID: 1845826779260039244, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3077831647382765299, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
@@ -3225,6 +3229,10 @@ PrefabInstance:
       propertyPath: continueButton
       value: 
       objectReference: {fileID: 4025388168506901294}
+    - target: {fileID: 3798080775141933854, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4203378649699779383, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -3253,6 +3261,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -337.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6862366634730113974, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 5893198803349590047}
+    - target: {fileID: 6862366634730113974, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 2336257345555400220}
+    - target: {fileID: 6862366634730113974, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 7822236094197277935}
     - target: {fileID: 7373659736804187136, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
       propertyPath: m_margin.z
       value: -973.01587
@@ -3275,6 +3295,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7743441481458817834, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207107651910261042, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8858050914264877024, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
@@ -3326,11 +3350,38 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6203068217567909931, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
   m_PrefabInstance: {fileID: 5059950153548061212}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2336257345555400220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7373659736804187136, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
+  m_PrefabInstance: {fileID: 5059950153548061212}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4025388168506901294 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8207107651910261042, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
   m_PrefabInstance: {fileID: 5059950153548061212}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &5893198803349590047 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1724971899060128259, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
+  m_PrefabInstance: {fileID: 5059950153548061212}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7822236094197277935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3077831647382765299, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}
+  m_PrefabInstance: {fileID: 5059950153548061212}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7840507346335030193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3096117262768767405, guid: 7e570d08fa71fdc47bac871a358986ce, type: 3}

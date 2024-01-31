@@ -8,7 +8,6 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
     public Animator animator;
-    [SerializeField] private GameObject continueButton;
     private Queue<string> _lines;
     private Queue<string> _names;
     private bool _isRunning;
@@ -73,7 +72,6 @@ public class DialogueController : MonoBehaviour
             if (!animator.GetBool(IsOpen))
             {
                 animator.SetBool(IsOpen, true);
-                continueButton.SetActive(true);
             }
 
             if (_lines.Count == 0)
@@ -112,6 +110,8 @@ public class DialogueController : MonoBehaviour
             dialogueText.text = displayText;
             yield return new WaitForSeconds(0.05f);
         }
+
+        dialogueText.text = _currentTexT;
         _isTyping = false;
     }
 
@@ -121,6 +121,5 @@ public class DialogueController : MonoBehaviour
 
         _isRunning = false;
         animator.SetBool(IsOpen, false);
-        continueButton.SetActive(false);
     }
 }
